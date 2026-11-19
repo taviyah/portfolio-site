@@ -156,6 +156,7 @@ nav .lang { border: 1px solid var(--line); }
 .mini h3 { font-size: 19px; }
 .mini p { color: var(--muted); font-size: 15px; }
 .mini .more { margin-block-start: auto; font-size: 15px; }
+.mini .more + .more { margin-block-start: 2px; }
 @media (max-width: 900px) { .mini-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .mini-grid { grid-template-columns: 1fr; } }
 

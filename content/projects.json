@@ -427,7 +427,8 @@
         "en": "The other bug on this phone"
       },
       "url": "/notes/phone-dropping-calls/"
-    }
+    },
+    "source": "https://github.com/taviyah/real-signal"
   },
   {
     "slug": "weather-alert",

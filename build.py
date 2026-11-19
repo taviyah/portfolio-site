@@ -207,6 +207,9 @@ def small_card(pr, lang):
         ln = pr["link"]
         href = prefix(lang) + ln["url"] if ln["url"].startswith("/") else ln["url"]
         link = f'<a class="more" href="{e(href)}">{e(t(ln["label"], lang))} {svg("arrow", 16)}</a>'
+    if pr.get("source"):
+        label = "קוד המקור ב־GitHub" if lang == "he" else "Source code on GitHub"
+        link += f'<a class="more" href="{e(pr["source"])}" rel="noopener">{label} {svg("arrow", 16)}</a>'
 
     icon = app_icon(pr["slug"])
     mark = (f'<img src="{icon}" alt="" width="40" height="40">' if icon else svg(pr["icon"], 22))
