@@ -214,6 +214,7 @@ nav .lang { border: 1px solid var(--line); }
 .facts-box dd { margin: 2px 0 0; font-weight: 500; }
 @media (max-width: 760px) { .proj-head { grid-template-columns: 1fr; gap: 24px; } }
 
+.intro { margin-block: 40px 0; padding-inline-start: 18px; border-inline-start: 4px solid var(--accent); font-size: clamp(19px, 2.2vw, 23px); line-height: 1.55; max-width: 60ch; }
 .gallery { margin-block: 48px; display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-block-end: 8px; align-items: flex-start; }
 .gallery figure { margin: 0; flex: none; scroll-snap-align: start; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); background: var(--surface); }
 .gallery figure.wide { width: min(720px, 86vw); }

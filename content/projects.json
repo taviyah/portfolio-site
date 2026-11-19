@@ -50,13 +50,13 @@
     },
     "hard": {
       "he": [
-        "<strong>עלות אפס ופרטיות.</strong> האפליקציה רצה כולה בחשבון הגוגל של המורה (Apps Script). אין שרת לתחזק, אין חיוב חודשי, והנתונים של התלמידים לא יוצאים מהחשבון שלה.",
+        "<strong>עלות אפס, והנתונים אצל המורה.</strong> האפליקציה רצה כולה בחשבון הגוגל של המורה (Apps Script), בלי שרת לתחזק ובלי חיוב חודשי. היומן שומר את הסיכומים והקבצים בחשבון הגוגל שלה. את הסיכום מכינים בנפרד ומדביקים ביומן.",
         "<strong>עברית שהתקלקלה בדרך.</strong> בהתקנה הראשונה הקבצים נשלחו בהודעה והעברית הפכה לג'יבריש. הפתרון: שלב בנייה שממיר כל תו לא־ASCII לקוד, כך שהקבצים שורדים כל העתקה ושליחה.",
         "<strong>עדכונים בלי לאבד נתונים.</strong> כשנוספה האפשרות לסמן \"תלמיד לא הגיע\", נכתבה בדיקת הגירה שמוודאת שכל הנתונים הקיימים נשמרים.",
         "<strong>בדיקות אוטומטיות.</strong> שירותי גוגל מדומים ב־Node, עם 20 בדיקות שרת (כולל שיעור שמופיע בשני יומנים ומעבר לשעון קיץ) ובדיקות ממשק מלאות."
       ],
       "en": [
-        "<strong>Zero cost and private.</strong> The whole app runs inside the coach's own Google account (Apps Script). No server to maintain, no monthly bill, and student data never leaves her account.",
+        "<strong>Zero cost, and the data stays with the coach.</strong> The whole app runs inside the coach's own Google account (Apps Script), with no server to maintain and no monthly bill. The journal keeps the summaries and files in her Google account; the summary itself is prepared separately and pasted in.",
         "<strong>Hebrew that broke on the way.</strong> On the first install the files were sent by message and the Hebrew turned to gibberish. The fix: a build step that escapes every non-ASCII character, so the files survive any copy or transfer.",
         "<strong>Updates without losing data.</strong> When an \"absent\" option was added, a migration test made sure all existing records came through intact.",
         "<strong>Automated tests.</strong> Google's services are faked in Node: 20 server checks (including a lesson that appears in two calendars, and the daylight-saving week) plus full UI tests."
@@ -105,7 +105,11 @@
         },
         "wide": true
       }
-    ]
+    ],
+    "intro": {
+      "he": "מורה לפיתוח קול פותחת את דף התלמיד ורואה מה עשו בשיעור הקודם, אילו שירים תרגלו ומה נשאר לסכם.",
+      "en": "A vocal coach opens a student's page and sees what they did last lesson, which songs they practised, and what is still waiting for a summary."
+    }
   },
   {
     "slug": "click-to-read",
@@ -162,13 +166,13 @@
         "<strong>עברית על המכשיר, בלי אינטרנט.</strong> טקסט עברי צריך ניקוד לפני שאפשר להגות אותו. השרשרת רצה כולה בטלפון: מודל ניקוד, המרה להגייה, ואז קול. ההמרה להגייה הועברה לקוטלין ונבדקה מול גרסת המקור עד התאמה מלאה, תו בתו.",
         "<strong>מהירות על טלפון חלש.</strong> טלפון הדיו האלקטרוני הוא מכשיר חלש. מדדתי את מספר התהליכונים האופטימלי למודל במקום לנחש.",
         "<strong>מעקב אחרי הטקסט בזמן גלילה.</strong> ההדגשה צריכה להישאר על השורה הנכונה גם כשהמשתמש גולל את האפליקציה האחרת.",
-        "<strong>55 גרסאות שמורות ובדיקות \"זהב\"</strong> לניקוד, למספרים ולפיצול המילים."
+        "<strong>בדיקות \"זהב\"</strong> לניקוד, למספרים ולפיצול המילים: הפלט נבדק מול תוצאות ידועות בכל שינוי."
       ],
       "en": [
         "<strong>Hebrew on the device, offline.</strong> Hebrew text needs vowel marks before it can be pronounced. The whole chain runs on the phone: a diacritization model, a phonemizer, then a voice. The phonemizer was ported to Kotlin and checked against the reference until the output matched exactly.",
         "<strong>Speed on a slow phone.</strong> The e-ink phone is a weak device. I measured the best thread count for the model instead of guessing.",
         "<strong>Following the text while scrolling.</strong> The highlight has to stay on the right line while the user scrolls the other app.",
-        "<strong>55 commits and golden tests</strong> for diacritization, numbers and tokenizing."
+        "<strong>Golden tests</strong> for diacritization, numbers and tokenizing: the output is checked against known results on every change."
       ]
     },
     "note": {
@@ -176,7 +180,11 @@
       "en": "The Hebrew voice is licensed for non-commercial use only, so this is a personal tool, not a product for sale."
     },
     "links": [],
-    "media": []
+    "media": [],
+    "intro": {
+      "he": "נוגעים בטקסט על המסך ומתחילים להאזין. גם משפט שמשלב עברית ואנגלית מוקרא בקול המתאים לכל שפה, והקריאה בעברית רצה בטלפון עצמו, בלי אינטרנט.",
+      "en": "Tap text on the screen and start listening. Even a sentence that mixes Hebrew and English is read with the right voice for each language, and the Hebrew voice runs on the phone itself, with no internet."
+    }
   },
   {
     "slug": "event-silencer",
@@ -194,8 +202,8 @@
       "en": "Silences your phone by itself during calendar events and at places you choose."
     },
     "status": {
-      "he": "בשימוש, בהכנה לגוגל פליי",
-      "en": "In use, being prepared for Google Play"
+      "he": "בשימוש, ובהכנה לפרסום בגוגל פליי",
+      "en": "In use, and being prepared for release on Google Play"
     },
     "platforms": {
       "he": "אנדרואיד",
@@ -217,25 +225,25 @@
         "התחברות לחשבון גוגל וקריאה של היומן (קריאה בלבד).",
         "השתקה אוטומטית בזמן אירועים עסוקים, עם סינון לפי מילים (\"פגישה\", \"תיאטרון\"), דקות לפני ואחרי, ובחירה בין שקט, רטט ונא לא להפריע.",
         "השתקה לפי מיקום: שומרים מקומות, והטלפון משתתק כשמגיעים אליהם.",
-        "30 יום ניסיון ואז פתיחה בתשלום חד־פעמי דרך גוגל פליי."
+        "מודל התשלום המתוכנן: 30 יום ניסיון ואז פתיחה בתשלום חד־פעמי דרך גוגל פליי. עוד לא פורסם."
       ],
       "en": [
         "Sign in with Google and read the calendar (read-only).",
         "Automatic silence during busy events, with a keyword filter (\"meeting\", \"theater\"), minutes before and after, and a choice of silent, vibrate or Do Not Disturb.",
         "Silence by place: save locations, and the phone goes quiet when you arrive.",
-        "A 30-day trial, then a one-time paid unlock through Google Play."
+        "Planned payment model: a 30-day trial, then a one-time paid unlock through Google Play. Not released yet."
       ]
     },
     "hard": {
       "he": [
-        "<strong>הרשאות של גוגל.</strong> גישה ליומן דורשת אפליקציית OAuth בגוגל קלאוד, מדיניות פרטיות ודף מחיקת נתונים. הכל הוכן והאפליקציה הועברה למצב production.",
+        "<strong>הרשאות של גוגל.</strong> גישה ליומן דורשת אפליקציית OAuth בגוגל קלאוד, מדיניות פרטיות ודף מחיקת נתונים. כל אלה הוכנו, וההתחברות עם גוגל עובדת גם אצל משתמשים אחרים.",
         "<strong>אנדרואיד הורג אפליקציות ברקע.</strong> כל יצרן מגביל את הרקע אחרת, וההשתקה חייבת לקרות בזמן גם כשהאפליקציה סגורה.",
-        "<strong>מוצר, לא רק קוד.</strong> תקופת ניסיון, רכישה, גרפיקה לחנות ומסלול שחרור לגוגל פליי."
+        "<strong>מוצר, לא רק קוד.</strong> גרפיקה לחנות, מדיניות פרטיות והכנה לפרסום, ותקופת ניסיון ורכישה שמחכות לבדיקה מול החנות."
       ],
       "en": [
-        "<strong>Google permissions.</strong> Calendar access needs an OAuth app in Google Cloud, a privacy policy and a data-deletion page. All of it was prepared and the app was moved to production.",
+        "<strong>Google permissions.</strong> Calendar access needs an OAuth app in Google Cloud, a privacy policy and a data-deletion page. All of it is in place, and Google sign-in works for other users too.",
         "<strong>Android kills background apps.</strong> Every manufacturer restricts background work differently, and the silence has to happen on time even when the app is closed.",
-        "<strong>A product, not just code.</strong> A trial, a purchase, store graphics and a release track for Google Play."
+        "<strong>A product, not just code.</strong> Store graphics, a privacy policy and release preparation, plus a trial and purchase that are waiting to be tested against the store."
       ]
     },
     "links": [],
@@ -306,7 +314,7 @@
     "built": {
       "he": [
         "טוענים שיר, והאפליקציה מפרידה בין השירה לליווי על המכשיר עצמו, בלי שרת.",
-        "שינוי טון בחצאי טונים בלי לשנות את הקצב, וייצוא ל־MP3.",
+        "שינוי הסולם בחצאי טונים, בלי לשנות את הקצב, וייצוא ל־MP3.",
         "ספריית פרויקטים ששומרת את המקור ואת הליווי בנפרד מההגדרות, וקובץ פרויקט אחד שעובר בין המכשירים.",
         "קוד ממשק אחד משותף לווינדוס ולאנדרואיד, וגרסה נפרדת לאייפד."
       ],
@@ -320,12 +328,12 @@
     "hard": {
       "he": [
         "<strong>מודל AI כבד בתוך דפדפן.</strong> ההפרדה רצה על כרטיס המסך (WebGPU) כשאפשר. אם היא נתקעת שתי דקות, היא מתחילה מחדש על המעבד מעותק תקין של המקור.",
-        "<strong>אימות במספרים.</strong> תוצאת המודל בדפדפן הושוותה לתוצאה המקורית (דמיון 0.99999999978), ושינוי הטון נבדק בצליל 440Hz שהוזז ונמדד 494Hz.",
+        "<strong>אימות במספרים.</strong> תוצאת המודל בדפדפן הושוותה לתוצאה המקורית (דמיון 0.99999999978). כדי לבדוק ששינוי הסולם מדויק, העליתי צליל בדיקה בטון שלם ומדדתי את התוצאה: מ־440 לכ־494 הרץ.",
         "<strong>כנות לגבי מה נבדק.</strong> כל גרסה מתועדת עם מה שנבדק בפועל על מכשיר ומה שעדיין לא."
       ],
       "en": [
         "<strong>A heavy AI model inside a browser.</strong> Separation runs on the graphics card (WebGPU) when it can. If it stalls for two minutes, it restarts on the CPU from a clean copy of the source.",
-        "<strong>Verified with numbers.</strong> The in-browser model output was compared with the reference (similarity 0.99999999978), and pitch shift was checked with a 440 Hz tone shifted and measured at 494 Hz.",
+        "<strong>Verified with numbers.</strong> The in-browser model output was compared with the reference (similarity 0.99999999978). To check the key change is exact, I raised a test tone by a whole tone and measured the result: from 440 to about 494 Hz.",
         "<strong>Honest about what was tested.</strong> Every release notes what was actually verified on a device and what wasn't yet."
       ]
     },
@@ -344,8 +352,8 @@
       "en": "Where's my Sun"
     },
     "tagline": {
-      "he": "מכוונים את הטלפון לשמיים ורואים איפה השמש והירח יעברו במהלך היום, על גבי תמונת המצלמה.",
-      "en": "Point the phone at the sky and see where the sun and moon will pass during the day, on top of the camera image."
+      "he": "מכוונים את הטלפון לשמיים ורואים איפה השמש והירח יעברו היום או מחר, על גבי תמונת המצלמה.",
+      "en": "Point the phone at the sky and see where the sun and moon will pass today or tomorrow, on top of the camera image."
     },
     "status": {
       "he": "עובד על שני טלפונים; בדיקת דיוק בחוץ בתהליך",
@@ -364,8 +372,8 @@
       "Unit tests"
     ],
     "problem": {
-      "he": "האם המקום שבו חניתי יהיה בצל בעוד שלוש שעות? איפה יעמוד השמש מעל המרפסת מחר בבוקר? קשה לדמיין את זה.",
-      "en": "Will the spot where I parked be in the shade in three hours? Where will the sun be over the balcony tomorrow morning? It's hard to picture."
+      "he": "האם המקום שבו חניתי יהיה בצל בעוד שלוש שעות? מאיזה כיוון תגיע השמש למרפסת מחר בבוקר? קשה לדמיין את זה.",
+      "en": "Will the spot where I parked be in the shade in three hours? From which direction will the sun reach the balcony tomorrow morning? It's hard to picture."
     },
     "built": {
       "he": [

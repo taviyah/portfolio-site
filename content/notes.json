@@ -4,8 +4,8 @@
     "accent": "#B91C1C",
     "icon": "signal",
     "title": {
-      "he": "למה הטלפון ניתק שיחות כשהמסך ננעל",
-      "en": "Why my phone dropped calls when the screen locked"
+      "he": "למה ה־Bigme HiBreak Pro שלי ניתק שיחות כשהמסך כבה",
+      "en": "Why my Bigme HiBreak Pro dropped calls when the screen went off"
     },
     "tagline": {
       "he": "שלוש תקלות שנראו שונות, הגדרה נסתרת אחת, ואיך מוצאים אותה עם יומן הסוללה של אנדרואיד.",
@@ -24,8 +24,8 @@
         "<p>שורה אחת, מהמחשב:</p>",
         "<pre><code>adb shell settings put system deepsleep_open_airplane 0</code></pre>",
         "<p>התיקון שורד הפעלה מחדש. אחרי כל עדכון מערכת של היצרן כדאי לבדוק אותו שוב.</p>",
-        "<h2>למה אפליקציה לא יכולה לעשות את זה</h2>",
-        "<p>ניסיתי לבנות אפליקציה שתדליק את המצב בלילה ותכבה אותו ביום. התזמון עבד. הכתיבה להגדרה נחסמה. אנדרואיד מאפשר לכתוב הגדרות מערכת לא־ציבוריות רק לתהליכים של המערכת, root או ה־shell. זו בדיקה לפי <em>זהות התהליך</em>, לא לפי הרשאה: גם כשהאפליקציה קיבלה <code>WRITE_SECURE_SETTINGS</code>, הכתיבה נכשלה, ואותה פקודה בדיוק מה־shell הצליחה בכל פעם. אותו קיר עומד גם בפני Tasker, MacroDroid וכל אפליקציית אוטומציה אחרת.</p>",
+        "<h2>למה האפליקציה שבניתי לא הצליחה לשנות את ההגדרה</h2>",
+        "<p>ניסיתי לבנות אפליקציה שתדליק את המצב בלילה ותכבה אותו ביום. התזמון עבד. הכתיבה להגדרה נחסמה. אנדרואיד מאפשר לכתוב הגדרות מערכת לא־ציבוריות רק לתהליכים של המערכת, root או ה־shell. זו בדיקה לפי <em>זהות התהליך</em>, לא לפי הרשאה: גם כשהאפליקציה קיבלה <code>WRITE_SECURE_SETTINGS</code>, הכתיבה נכשלה, ואותה פקודה בדיוק מה־shell הצליחה בכל פעם. אותו חסם צפוי לעצור גם את Tasker, MacroDroid ושאר אפליקציות האוטומציה, כי גם הן אפליקציות רגילות. את זה לא בדקתי.</p>",
         "<h2>מה כן עובד</h2>",
         "<p>הגדרה אחרת, <code>wifi_disconnect_time_seconds</code>, דוחה את ההתראה למרות השם שלה: ב־30 (ברירת המחדל) הרדיו נכבה אחרי כ־52 שניות, ב־60 אחרי כ־104, וב־10 ההתראה לא נקבעת בכלל. אלה שלוש מדידות בלבד, ולכן היחס המדויק עדיין לא מאומת.</p>",
         "<h2>מה למדתי</h2>",
@@ -45,8 +45,8 @@
         "<p>One line, from a computer:</p>",
         "<pre><code>adb shell settings put system deepsleep_open_airplane 0</code></pre>",
         "<p>It survives a reboot. It's worth re-checking after any vendor system update.</p>",
-        "<h2>Why an app can't do it</h2>",
-        "<p>I tried to build an app that would turn the mode on at night and off by day. The scheduling worked; writing the setting was blocked. Android only lets system, root or shell processes write non-public system settings. It's a check on the <em>process identity</em>, not a permission: even with <code>WRITE_SECURE_SETTINGS</code> granted, the app's write failed, while the identical command from the shell succeeded every time. The same wall stops Tasker, MacroDroid and every other automation app.</p>",
+        "<h2>Why the app I built couldn't change the setting</h2>",
+        "<p>I tried to build an app that would turn the mode on at night and off by day. The scheduling worked; writing the setting was blocked. Android only lets system, root or shell processes write non-public system settings. It's a check on the <em>process identity</em>, not a permission: even with <code>WRITE_SECURE_SETTINGS</code> granted, the app's write failed, while the identical command from the shell succeeded every time. The same wall would stop Tasker, MacroDroid and other automation apps too, since they are ordinary apps as well. I didn't test that.</p>",
         "<h2>What does work</h2>",
         "<p>Another setting, <code>wifi_disconnect_time_seconds</code>, delays the alarm despite its name: at 30 (the default) the radios go off after about 52 seconds, at 60 after about 104, and at 10 the alarm isn't scheduled at all. That's only three measurements, so the exact relationship is still unverified.</p>",
         "<h2>What I took from it</h2>",

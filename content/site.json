@@ -113,7 +113,7 @@
     "lang_switch": "עברית",
     "nav": {
       "work": "Work",
-      "services": "Build for you",
+      "services": "Services",
       "about": "About",
       "contact": "Contact"
     },
@@ -149,11 +149,11 @@
       "back": "← All work",
       "client": "Client project",
       "product": "Product",
-      "own": "Own project",
+      "own": "Personal project",
       "original": "Original project",
       "screens_soon": "Screenshots coming soon"
     },
-    "services_title": "Build for you",
+    "services_title": "Services",
     "services_body": "If something in your business is done by hand, in spreadsheets, in WhatsApp or on paper, a small custom tool can probably save you hours every week.",
     "services_list": [
       {

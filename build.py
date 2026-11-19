@@ -319,6 +319,7 @@ def project_page(pr, lang):
     note = (f'<aside class="callout"><b>{e(L["note"])}:</b> {e(t(pr["note"], lang))}</aside>'
             if pr.get("note") else "")
     kind = pr.get("kind", "own")
+    intro = f'<p class="intro">{e(t(pr["intro"], lang))}</p>' if pr.get("intro") else ""
     body = f"""
 <article class="proj" style="--accent:{pr['accent']}">
   <div class="wrap">
@@ -336,6 +337,7 @@ def project_page(pr, lang):
         <div><dt>{e(L['year'])}</dt><dd>{e(pr['year'])}</dd></div>
       </dl>
     </header>
+    {intro}
     {gallery}
     <div class="proj-body">
       <section><h2>{e(L['problem'])}</h2><p>{e(t(pr['problem'], lang))}</p></section>
