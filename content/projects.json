@@ -436,12 +436,12 @@
     "accent": "#0E7490",
     "icon": "cloud",
     "title": {
-      "he": "התראת מזג אוויר",
+      "he": "התראות מזג אוויר",
       "en": "Weather Alert"
     },
     "tagline": {
-      "he": "מתריע על גשם, אבק, זיהום אוויר או שינוי חד במקומות שלך, ואומר מה זה אומר לכביסה, למסכה ולביגוד. בלי חשבון ובלי שרת.",
-      "en": "Warns about rain, dust, bad air or sharp changes for your places, and says what it means for laundry, a mask and clothing. No account, no server."
+      "he": "בוחרים מקומות ומקבלים התראה מראש כשצפויים גשם, אבק, זיהום אוויר או שינוי חד בטמפרטורה או ברוח. האפליקציה גם מציעה מתי כדאי לדחות את תליית הכביסה, לקחת מעיל או לשקול מסכה. בלי לפתוח חשבון.",
+      "en": "Pick your places and get warned ahead of rain, dust, poor air quality, or a sharp change in temperature or wind. The app also suggests when to hold off on hanging the laundry, take a coat or consider a mask. No account needed."
     },
     "stack": [
       "Kotlin",
