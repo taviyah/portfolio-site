@@ -15,8 +15,8 @@
       "en": "A student log for a private vocal coach: every lesson, summary, song and file in one place."
     },
     "status": {
-      "he": "בשימוש יומיומי אצל לקוחה",
-      "en": "In daily use by a client"
+      "he": "מורה לפיתוח קול משתמשת בו מדי יום",
+      "en": "A vocal coach uses it every day"
     },
     "platforms": {
       "he": "אייפד ומחשב, בדפדפן",
@@ -119,8 +119,8 @@
       "en": "Click to Read"
     },
     "tagline": {
-      "he": "נוגעים בטקסט בכל אפליקציה, והטלפון מקריא אותו בקול טבעי, כולל עברית אמיתית.",
-      "en": "Tap text in any app and the phone reads it aloud in a natural voice, including real Hebrew."
+      "he": "נוגעים בטקסט על המסך, והטלפון מקריא אותו בקול טבעי, גם בעברית. ההקראה מתבצעת בטלפון עצמו.",
+      "en": "Tap text on the screen and the phone reads it aloud in a natural voice, Hebrew included. It all runs on the phone itself."
     },
     "status": {
       "he": "בשימוש יומיומי על שני טלפונים",
@@ -278,8 +278,8 @@
       "en": "Pitch Lab"
     },
     "tagline": {
-      "he": "מפריד שירה מליווי ומשנה טון, כדי לתרגל שיר בדיוק בגובה שלך.",
-      "en": "Separates the vocals from the backing track and shifts the key, so you can practise a song in your own range."
+      "he": "מפריד את השירה מהליווי ומאפשר לשנות את הסולם, כדי שתוכלו לתרגל את השיר בגובה שנוח לכם לשיר בו.",
+      "en": "Separates the vocals from the backing track and lets you change the key, so you can practise the song at a pitch that's comfortable to sing."
     },
     "status": {
       "he": "ווינדוס ואייפד עובדים; אנדרואיד נבנה, טרם נבדק על מכשיר",
@@ -300,7 +300,7 @@
       "Cloudflare Workers"
     ],
     "problem": {
-      "he": "זמרים רוצים לתרגל עם הליווי בלבד, ולעיתים קרובות בטון אחר מהמקור. כלים כאלה בדרך כלל מעלים את השיר לשרת ועולים כסף.",
+      "he": "זמרים רוצים לתרגל עם הליווי בלבד, ולעיתים קרובות בסולם אחר מהמקור. כלים כאלה בדרך כלל מעלים את השיר לשרת ועולים כסף.",
       "en": "Singers want to practise with just the backing track, often in a different key from the original. Tools that do this usually upload the song to a server and charge for it."
     },
     "built": {
@@ -344,8 +344,8 @@
       "en": "Where's my Sun"
     },
     "tagline": {
-      "he": "מכוונים את הטלפון לשמיים ורואים את מסלול השמש והירח של היום, מצויר על המצלמה.",
-      "en": "Point the phone at the sky and see today's sun and moon paths drawn over the camera."
+      "he": "מכוונים את הטלפון לשמיים ורואים איפה השמש והירח יעברו במהלך היום, על גבי תמונת המצלמה.",
+      "en": "Point the phone at the sky and see where the sun and moon will pass during the day, on top of the camera image."
     },
     "status": {
       "he": "עובד על שני טלפונים; בדיקת דיוק בחוץ בתהליך",
@@ -408,12 +408,12 @@
     "accent": "#B45309",
     "icon": "bars",
     "title": {
-      "he": "Real Signal: הקליטה האמיתית",
+      "he": "Real Signal",
       "en": "Real Signal"
     },
     "tagline": {
-      "he": "מראה את הקליטה האמיתית של הטלפון, ומסביר במילים פשוטות למה האינטרנט איטי. נבנה אחרי שגיליתי שסרגל הקליטה של היצרן מראה פסים מלאים גם בקליטה בינונית, ו־5G גם כשהנתונים עוברים ב־4G.",
-      "en": "Shows the phone's true signal, and explains in plain words why the internet is slow. Built after finding that the maker's status bar shows full bars on a fair signal, and 5G while data is really on 4G."
+      "he": "מציג את עוצמת הקליטה, בודק אם הגלישה עוברת בפועל בדור 4 או 5, ומסביר למה האינטרנט איטי. בניתי אותו אחרי שהטלפון הציג קליטה מלאה וסמל של דור 5 גם כשגלש בפועל בדור 4.",
+      "en": "Shows the real signal strength, checks whether data is actually going over 4G or 5G, and explains why the internet is slow. Built after the phone showed full bars and a 5G icon while it was really on 4G."
     },
     "stack": [
       "Kotlin",
