@@ -20,6 +20,10 @@ PROJECTS = json.loads((ROOT / "content/projects.json").read_text(encoding="utf-8
 NOTES = json.loads((ROOT / "content/notes.json").read_text(encoding="utf-8"))
 CONTACT = SITE["contact"]
 IS_DRAFT = not (CONTACT.get("email") or CONTACT.get("whatsapp"))
+# Browsers keep /assets/* for a week (_headers), so the stylesheet link carries a version that
+# changes whenever the file does; otherwise returning visitors would see old styles.
+import hashlib
+CSS_VERSION = hashlib.sha256((ROOT / "assets/style.css").read_bytes()).hexdigest()[:10]
 
 # Simple line icons, drawn on a 24x24 grid, used when a project has no app icon image.
 ICONS = {
@@ -122,7 +126,7 @@ def page(lang, path_he, path_en, title, description, body, body_class=""):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Rubik:wght@500;600;700&display=swap">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/style.css?v={CSS_VERSION}">
 </head>
 <body class="{body_class}">
 {draft}
