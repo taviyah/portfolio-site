@@ -546,8 +546,8 @@
       "en": "Camera Obscura"
     },
     "tagline": {
-      "he": "מצלמה עם מקשי עוצמה כמקש צילום, טיימר וצילום וידאו עם מסך כבוי. נבנתה לטלפון דיו אלקטרוני.",
-      "en": "A camera with the volume keys as shutter, a self-timer and screen-off video. Built for an e-ink phone."
+      "he": "מצלמה שממשיכה לצלם ולהקליט וידאו כשהמסך כבוי. מקשי העוצמה משמשים כמקש צילום, ויש טיימר. נבנתה לטלפון עם מסך דיו אלקטרוני.",
+      "en": "A camera that keeps taking photos and recording video with the screen off. The volume keys work as the shutter, and there is a self-timer. Built for an e-ink phone."
     },
     "stack": [
       "Kotlin",
@@ -560,18 +560,18 @@
     "accent": "#15803D",
     "icon": "notes",
     "title": {
-      "he": "תרומה ל־Partsong",
-      "en": "Contributions to Partsong"
+      "he": "תווים",
+      "en": "Tavim (sheet music)"
     },
     "tagline": {
-      "he": "גרסה עברית מורחבת של Partsong, פרויקט קוד פתוח של Paul Fremantle שקורא תווים מ־PDF ומנגן אותם. הוספתי ממשק עברי, ייבוא MusicXML, מיקסר וליווי, ותמלול מהקלטה לתווים שרץ בדפדפן.",
-      "en": "An extended Hebrew version of Partsong, Paul Fremantle's open-source app that reads sheet music from a PDF and plays it. I added a Hebrew interface, MusicXML import, a mixer and accompaniment, and in-browser audio-to-notes transcription."
+      "he": "אפליקציה שעוזרת ללמוד לנגן יצירות: פותחים תווים מ־PDF או MusicXML ושומעים אותם מתנגנים, עם מיקסר וליווי. אפשר גם להפוך הקלטה לתווים, בדיוק שעוד לא מושלם. מבוססת על Partsong, פרויקט קוד פתוח של Paul Fremantle.",
+      "en": "An app that helps you learn to play a piece: open sheet music from a PDF or MusicXML and hear it played, with a mixer and accompaniment. It can also turn a recording into sheet music, though not yet perfectly accurately. Built on Partsong, Paul Fremantle's open-source project."
     },
     "stack": [
       "JavaScript",
       "WebAssembly",
       "ONNX",
-      "AGPL-3.0"
+      "Built on Partsong (AGPL-3.0)"
     ],
     "url": "https://partsong.app/"
   }
