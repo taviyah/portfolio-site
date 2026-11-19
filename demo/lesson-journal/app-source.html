@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<base target="_top">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap">
+<style>
+:root{
+  --ground:#F4F5F7; --surface:#FFFFFF; --ink:#1D2129; --muted:#5B6270;
+  --line:#E3E5EA; --line2:#D5D8DE; --accent:#5E3A9E; --accent-ink:#FFFFFF;
+  --done-bg:#E6F3EC; --done-fg:#17603C; --miss-bg:#FCEEE1; --miss-fg:#94470A;
+  --plan-bg:#EEF0F3; --plan-fg:#4E5563; --soft:#E9EBEF;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--ground);color:var(--ink);font-family:Heebo,system-ui,sans-serif;-webkit-text-size-adjust:100%}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:var(--accent)}
+.topbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 24px;background:var(--surface);border-bottom:1px solid var(--line)}
+.brand{font-size:21px;font-weight:700}
+.tabs{display:flex;gap:4px;background:var(--plan-bg);padding:4px;border-radius:12px}
+.tab{min-height:44px;padding:0 20px;border:0;border-radius:9px;background:transparent;color:var(--plan-fg);font-size:16px;font-weight:500}
+.tab.on{background:var(--accent);color:var(--accent-ink)}
+main{padding:20px 24px 80px;max-width:1400px;margin:0 auto}
+h1{margin:0;font-size:27px;font-weight:700}
+h2{margin:0;font-size:18px;font-weight:700}
+h3{margin:0;font-size:15px;font-weight:700}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+.head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.head p{margin:4px 0 0}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.btn{min-height:44px;padding:0 16px;border:1px solid var(--line2);border-radius:10px;background:var(--surface);font-size:15px;font-weight:500;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+.btn.big{min-height:52px;padding:0 28px;font-size:17px;border-radius:12px}
+.btn.link{border:0;background:transparent;color:var(--ink);padding:0 10px}
+.btn:disabled{opacity:.45;cursor:default}
+.icon{width:20px;height:20px;flex-shrink:0}
+.week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;align-items:start}
+.day{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:10px;display:flex;flex-direction:column;gap:8px;min-height:420px}
+.day.today{background:var(--surface);border-color:var(--accent)}
+.day-head{display:flex;align-items:baseline;justify-content:space-between;padding:4px 4px 6px;font-weight:700;font-size:16px}
+.today-tag{font-size:13px;color:var(--accent)}
+.chip{display:flex;flex-direction:column;align-items:flex-start;gap:5px;width:100%;min-height:88px;padding:11px;background:var(--surface);border:1px solid var(--line);border-radius:12px;text-align:right}
+.chip .name{font-size:17px;font-weight:700}
+.pill{font-size:13px;font-weight:500;padding:3px 9px;border-radius:999px;display:inline-flex;align-items:center;gap:4px}
+.pill.done{background:var(--done-bg);color:var(--done-fg)}
+.pill.missing{background:var(--miss-bg);color:var(--miss-fg)}
+.pill.planned{background:var(--plan-bg);color:var(--plan-fg)}
+.pill.absent{background:#E8EEF6;color:#2D4C7A}
+.chip.absent .name{text-decoration:line-through;color:var(--muted)}
+.absent-note{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 12px;border-radius:12px;background:#F2F5FA}
+.cols{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap}
+.col-main{flex:999 1 520px;min-width:0}
+.col-side{flex:1 1 280px;min-width:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px}
+textarea{width:100%;min-height:340px;padding:14px;font-size:17px;line-height:1.6;border:1px solid var(--line2);border-radius:12px;background:#FBFBFC;resize:vertical}
+input[type=text],input[type=date],input[type=time],select{min-height:44px;padding:0 12px;border:1px solid var(--line2);border-radius:10px;background:var(--surface);font-size:16px}
+label{font-weight:700;font-size:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.song{min-height:40px;padding:0 12px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);font-size:15px;display:inline-flex;align-items:center;gap:6px}
+.song.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.file{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;border-radius:10px;background:var(--ground)}
+.file a{font-size:15px;word-break:break-all}
+.x{min-width:40px;min-height:40px;border:0;border-radius:8px;background:transparent;display:inline-flex;align-items:center;justify-content:center;color:var(--muted)}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.stu{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-height:110px;padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:16px;text-align:right}
+.stu .name{font-size:21px;font-weight:700}
+.hist{display:flex;flex-direction:column;gap:12px}
+.hcard .top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.hcard .summary{margin:0;white-space:pre-line;line-height:1.6;font-size:16px}
+.songrow{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 6px 6px 12px;padding-inline-start:12px;border-radius:10px;background:var(--ground)}
+.songrow .nm{font-weight:500}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pick{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);font-size:16px}
+.pick.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.center{padding:60px 0;text-align:center}
+#main{touch-action:pan-y}
+@keyframes inFromLeft{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+@keyframes inFromRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+.slide-next{animation:inFromLeft .25s ease-out}
+.slide-prev{animation:inFromRight .25s ease-out}
+@media (prefers-reduced-motion:reduce){.slide-next,.slide-prev{animation:none}}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;border-radius:12px;font-size:15px;opacity:0;pointer-events:none;transition:opacity .2s;max-width:90vw;z-index:20}
+#toast.show{opacity:1}
+#toast.err{background:#8A1F1F}
+@media (max-width:980px){
+  .week{grid-template-columns:1fr}
+  .day{min-height:0}
+  .grid3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:560px){
+  .topbar{padding:10px 14px}
+  main{padding:16px 14px 80px}
+  .grid3{grid-template-columns:1fr}
+  .tab{padding:0 14px}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <span class="brand">יומן שיעורים</span>
+  <nav class="tabs" aria-label="ניווט ראשי">
+    <button class="tab" id="tabCal" data-act="goCal">לוח שנה</button>
+    <button class="tab" id="tabStu" data-act="goStudents">תלמידים</button>
+  </nav>
+</header>
+<main id="main"></main>
+<div id="toast" role="status" aria-live="polite"></div>
+<input type="file" id="fileInput" accept="application/pdf,.pdf,audio/*,.mp3,.m4a,image/*" hidden>
+
+<script>
+var DAY_NAMES = ['א׳','ב׳','ג׳','ד׳','ה׳','ו׳','ש׳'];
+var STATUS_LABEL = { done: 'סוכם', missing: 'חסר סיכום', planned: 'מתוכנן', absent: 'לא הגיע/ה' };
+var MAX_MB = 20;
+
+var ICON = {
+  back: '<svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>',
+  fwd: '<svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>',
+  plus: '<svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>',
+  x: '<svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  clip: '<svg width="14" height="14" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11l-8.5 8.5a5 5 0 0 1-7-7L14 4a3.5 3.5 0 0 1 5 5l-8.5 8.5a2 2 0 0 1-3-3L15 7"/></svg>'
+};
+
+var S = {
+  screen: 'calendar', back: 'calendar',
+  weekStart: sundayOf(new Date()), weeks: {}, slide: null,
+  students: null, studentId: null, student: null,
+  lesson: null, draft: '', draftSongs: [], songInput: '', dirty: false,
+  saving: false, uploading: false,
+  add: { name: '', date: ymd(new Date()), time: '16:00', minutes: 60 },
+  newStudent: '', items: {}, pending: {}, error: null
+};
+
+/* ---------- helpers ---------- */
+function pad(n) { return (n < 10 ? '0' : '') + n; }
+function ymd(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+function toDate(s) { var p = s.split('-').map(Number); return new Date(p[0], p[1] - 1, p[2]); }
+function sundayOf(d) { var x = new Date(d.getFullYear(), d.getMonth(), d.getDate()); x.setDate(x.getDate() - x.getDay()); return ymd(x); }
+function addDays(s, n) { var x = toDate(s); x.setDate(x.getDate() + n); return ymd(x); }
+function short(s) { if (!s) return '—'; var p = s.split('-').map(Number); return p[2] + '.' + p[1]; }
+function long(s) { var x = toDate(s); return 'יום ' + DAY_NAMES[x.getDay()] + ', ' + x.getDate() + '.' + (x.getMonth() + 1) + '.' + x.getFullYear(); }
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+function plural(n, one, many) { return n === 1 ? one : n + ' ' + many; }
+
+function call(fn) {
+  var args = Array.prototype.slice.call(arguments, 1);
+  return new Promise(function (resolve, reject) {
+    var r = google.script.run.withSuccessHandler(resolve).withFailureHandler(reject);
+    r[fn].apply(r, args);
+  });
+}
+function ensure(tag, fn, args, assign) {
+  if (S.pending[tag]) return;
+  S.pending[tag] = true;
+  call.apply(null, [fn].concat(args)).then(function (res) {
+    delete S.pending[tag]; assign(res); render();
+  }).catch(function (err) {
+    delete S.pending[tag]; S.error = (err && err.message) || String(err); render();
+  });
+}
+var toastTimer;
+function toast(msg, isErr) {
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.className = 'show' + (isErr ? ' err' : '');
+  clearTimeout(toastTimer); toastTimer = setTimeout(function () { t.className = ''; }, isErr ? 6000 : 2600);
+}
+function fail(err) { S.saving = false; S.uploading = false; render(); toast('משהו השתבש: ' + ((err && err.message) || err), true); }
+function invalidate() { S.weeks = {}; S.students = null; S.student = null; }
+
+/* Loads the weeks before and after the one on screen, quietly, so swiping is instant. */
+function prefetchAround(ws) {
+  [addDays(ws, -7), addDays(ws, 7)].forEach(function (s) {
+    if (S.weeks[s] || S.pending['week:' + s] || S.pending['pre:' + s]) return;
+    S.pending['pre:' + s] = true;
+    call('getWeek', s).then(function (w) {
+      delete S.pending['pre:' + s];
+      S.weeks[s] = w;
+    }).catch(function () { delete S.pending['pre:' + s]; });
+  });
+}
+
+function changeWeek(delta) {
+  S.weekStart = addDays(S.weekStart, delta * 7);
+  S.slide = delta > 0 ? 'slide-next' : 'slide-prev';
+  render();
+}
+function remember(item) { S.items[item.key] = item; return item; }
+function baseOf(l) { return { key: l.key, studentId: l.studentId, date: l.date, time: l.time }; }
+function leaveOk() { return !S.dirty || confirm('יש שינויים שלא נשמרו. לצאת בלי לשמור?'); }
+function loading() { return '<p class="center muted">טוען…</p>'; }
+
+/* ---------- screens ---------- */
+function render() {
+  var navStu = S.screen === 'students' || S.screen === 'student' || (S.screen === 'lesson' && S.back === 'student');
+  document.getElementById('tabCal').className = 'tab' + (navStu ? '' : ' on');
+  document.getElementById('tabStu').className = 'tab' + (navStu ? ' on' : '');
+  var main = document.getElementById('main');
+  if (S.error) {
+    main.innerHTML = '<div class="center"><p>משהו השתבש: ' + esc(S.error) + '</p><button class="btn primary" data-act="retry">לנסות שוב</button></div>';
+    return;
+  }
+  var html = { calendar: renderCalendar, lesson: renderLesson, students: renderStudents, student: renderStudent, add: renderAdd }[S.screen]();
+  main.innerHTML = html;
+  if (S.slide && S.screen === 'calendar') {
+    var cls = S.slide;
+    main.classList.remove('slide-next', 'slide-prev');
+    void main.offsetWidth;
+    main.classList.add(cls);
+    setTimeout(function () { main.classList.remove(cls); }, 300);
+  }
+  S.slide = null;
+}
+
+function renderCalendar() {
+  var week = S.weeks[S.weekStart];
+  if (!week) {
+    var ws = S.weekStart;
+    ensure('week:' + ws, 'getWeek', [ws], function (w) { S.weeks[w.start] = w; });
+    return weekHead(0, true) + loading();
+  }
+  prefetchAround(S.weekStart);
+  var missing = 0;
+  var cols = week.days.map(function (day, i) {
+    var isToday = day.date === week.today;
+    var chips = day.lessons.map(function (l) {
+      remember(l);
+      if (l.status === 'missing') missing++;
+      var fc = (l.files || []).length;
+      return '<button class="chip' + (l.status === 'absent' ? ' absent' : '') + '" data-act="openLesson" data-key="' + esc(l.key) + '">' +
+        '<span class="muted small">' + esc(l.time) + '</span>' +
+        '<span class="name">' + esc(l.name) + '</span>' +
+        '<span class="row"><span class="pill ' + l.status + '">' + STATUS_LABEL[l.status] + '</span>' +
+        (fc ? '<span class="pill planned">' + ICON.clip + fc + '</span>' : '') + '</span>' +
+        '</button>';
+    }).join('');
+    return '<section class="day' + (isToday ? ' today' : '') + '">' +
+      '<div class="day-head"><span>' + DAY_NAMES[i] + ' ' + short(day.date) + '</span>' + (isToday ? '<span class="today-tag">היום</span>' : '') + '</div>' +
+      (chips || '<p class="muted small" style="margin:6px 4px">אין שיעורים</p>') + '</section>';
+  }).join('');
+  return weekHead(missing, false) + '<div class="week">' + cols + '</div>';
+}
+
+function weekHead(missing, isLoading) {
+  var ws = S.weekStart;
+  var sub = isLoading ? '' : (missing ? plural(missing, 'שיעור אחד מחכה לסיכום', 'שיעורים מחכים לסיכום') : 'אין שיעורים שמחכים לסיכום');
+  return '<div class="head"><div><h1>' + short(ws) + ' – ' + short(addDays(ws, 6)) + '</h1><p class="muted">' + sub + '</p></div>' +
+    '<div class="row">' +
+    '<button class="btn" data-act="weekPrev" aria-label="שבוע קודם">' + ICON.back + '</button>' +
+    '<button class="btn" data-act="weekToday">השבוע</button>' +
+    '<button class="btn" data-act="weekNext" aria-label="שבוע הבא">' + ICON.fwd + '</button>' +
+    '<button class="btn primary" data-act="goAdd">' + ICON.plus + 'שיעור חדש</button>' +
+    '</div></div>';
+}
+
+function renderLesson() {
+  var L = S.lesson;
+  var backBtn = '<button class="btn link" data-act="back">' + ICON.back + 'חזרה</button>';
+  if (!L || L.loading) return backBtn + loading();
+  var songs = S.draftSongs.map(function (s, i) {
+    return '<button class="song on" data-act="removeSong" data-i="' + i + '" aria-label="הסרת ' + esc(s) + '">' + esc(s) + ICON.x + '</button>';
+  }).join('');
+  var prev = (L.prevSongs || []).filter(function (s) { return S.draftSongs.indexOf(s) === -1; }).map(function (s) {
+    return '<button class="song" data-act="addPrevSong" data-song="' + esc(s) + '">+ ' + esc(s) + '</button>';
+  }).join('');
+  var files = (L.files || []).map(function (f) {
+    return '<div class="file"><a href="' + esc(f.url) + '" target="_blank" rel="noopener">' + esc(f.name) + '</a>' +
+      '<button class="x" data-act="removeFile" data-id="' + esc(f.id) + '" data-name="' + esc(f.name) + '" aria-label="הסרת ' + esc(f.name) + '">' + ICON.x + '</button></div>';
+  }).join('');
+  return backBtn +
+    '<div class="cols" style="margin-top:10px">' +
+    '<section class="card col-main">' +
+      '<div class="head" style="margin:0"><div><h1>שיעור עם ' + esc(L.name) + '</h1><p class="muted">' + long(L.date) + ' · ' + esc(L.time) + '</p></div>' +
+      '<button class="btn" style="color:var(--accent)" data-act="openStudent" data-id="' + esc(L.studentId) + '">כל השיעורים של ' + esc(L.name) + '</button></div>' +
+      (L.absent ? '<div class="absent-note"><span class="pill absent">לא הגיע/ה</span><span class="muted small">השיעור לא ייספר כחסר סיכום</span>' +
+        '<button class="btn" data-act="unmarkAbsent"' + (S.saving ? ' disabled' : '') + '>ביטול הסימון</button></div>' : '') +
+      '<label for="summary">סיכום השיעור</label>' +
+      '<textarea id="summary" placeholder="לחצי כאן והדביקי את הסיכום">' + esc(S.draft) + '</textarea>' +
+      '<div class="row"><button class="btn primary big" data-act="save"' + (S.saving ? ' disabled' : '') + '>' + (S.saving ? 'שומר…' : 'שמירה') + '</button>' +
+      (L.absent ? '' : '<button class="btn big" data-act="markAbsent"' + (S.saving ? ' disabled' : '') + '>לא הגיע/ה</button>') +
+      (S.dirty ? '<span class="muted small">יש שינויים שלא נשמרו</span>' : '') + '</div>' +
+    '</section>' +
+    '<aside class="col-side" style="display:flex;flex-direction:column;gap:16px">' +
+      '<div class="card"><h2>שירים בשיעור</h2>' +
+        (songs ? '<div class="chips">' + songs + '</div>' : '<p class="muted small" style="margin:0">עדיין לא נבחרו שירים</p>') +
+        '<label for="songInput" class="small muted" style="font-weight:500">שיר חדש</label>' +
+        '<div class="row" style="flex-wrap:nowrap"><input type="text" id="songInput" style="flex:1;min-width:0" value="' + esc(S.songInput) + '">' +
+        '<button class="btn" data-act="addSong">הוספה</button></div>' +
+        (prev ? '<h3 style="margin-top:6px">שירים קודמים של ' + esc(L.name) + '</h3><div class="chips">' + prev + '</div>' : '') +
+      '</div>' +
+      '<div class="card"><h2>קבצים</h2>' +
+        (files || '<p class="muted small" style="margin:0">אין קבצים מצורפים</p>') +
+        '<button class="btn" data-act="attach"' + (S.uploading ? ' disabled' : '') + '>' + (S.uploading ? 'מעלה…' : ICON.plus + 'צירוף PDF או הקלטה') + '</button>' +
+        '<p class="muted small" style="margin:0">עד ' + MAX_MB + 'MB לקובץ. הקובץ נשמר מיד, גם בלי ללחוץ על שמירה.</p>' +
+      '</div>' +
+    '</aside></div>';
+}
+
+function renderStudents() {
+  if (!S.students) {
+    ensure('students', 'getStudents', [], function (r) { S.students = r; });
+    return '<div class="head"><h1>תלמידים</h1></div>' + loading();
+  }
+  var cards = S.students.map(function (s) {
+    return '<button class="stu" data-act="openStudent" data-id="' + esc(s.id) + '">' +
+      '<span class="name">' + esc(s.name) + '</span>' +
+      '<span class="muted small">שיעור אחרון: ' + short(s.last) + ' · ' + plural(s.count, 'שיעור אחד', 'שיעורים') + '</span>' +
+      (s.missing ? '<span class="pill missing">' + plural(s.missing, 'שיעור אחד מחכה לסיכום', 'שיעורים מחכים לסיכום') + '</span>' : '') +
+      '</button>';
+  }).join('');
+  return '<div class="head"><h1>תלמידים</h1>' +
+    '<div class="row"><label for="newStudent" class="small muted" style="font-weight:500">תלמיד/ה חדש/ה</label>' +
+    '<input type="text" id="newStudent" value="' + esc(S.newStudent) + '" style="width:200px">' +
+    '<button class="btn primary" data-act="addStudent">הוספה</button></div></div>' +
+    (cards ? '<div class="grid3">' + cards + '</div>' : '<p class="muted">עדיין אין תלמידים. הם יתווספו לבד כשיהיו שיעורים ביומן "שיעורים".</p>');
+}
+
+function renderStudent() {
+  var backBtn = '<button class="btn link" data-act="goStudents">' + ICON.back + 'כל התלמידים</button>';
+  if (!S.student || S.student.id !== S.studentId) {
+    var id = S.studentId;
+    ensure('student:' + id, 'getStudent', [id], function (r) { if (r.id === S.studentId) S.student = r; });
+    return backBtn + loading();
+  }
+  var st = S.student;
+  var hist = st.history.map(function (h) {
+    remember(h);
+    var files = (h.files || []).map(function (f) {
+      return '<a href="' + esc(f.url) + '" target="_blank" rel="noopener" class="small">' + esc(f.name) + '</a>';
+    }).join(' · ');
+    return '<article class="card hcard">' +
+      '<div class="top"><h2>' + long(h.date) + ' · ' + esc(h.time) + '</h2><span class="pill ' + h.status + '">' + STATUS_LABEL[h.status] + '</span></div>' +
+      (h.summary && h.summary.trim() ? '<p class="summary">' + esc(h.summary) + '</p>' : (h.status === 'absent' ? '' : '<p class="muted" style="margin:0">עדיין אין סיכום</p>')) +
+      ((h.songs || []).length ? '<p class="small" style="margin:0"><strong>שירים:</strong> ' + h.songs.map(esc).join(' · ') + '</p>' : '') +
+      (files ? '<p class="small" style="margin:0"><strong>קבצים:</strong> ' + files + '</p>' : '') +
+      '<div><button class="btn" data-act="openLesson" data-key="' + esc(h.key) + '">' + (h.summary && h.summary.trim() ? 'עריכה' : h.status === 'absent' ? 'פתיחה' : 'הוספת סיכום') + '</button></div>' +
+      '</article>';
+  }).join('');
+  var past = st.history.filter(function (h) { return h.status === 'done' || h.status === 'missing'; }).length;
+  var absences = st.history.filter(function (h) { return h.status === 'absent'; }).length;
+  var songs = st.songs.map(function (s) {
+    return '<div class="songrow"><div><div class="nm">' + esc(s.name) + '</div><div class="muted small">' + plural(s.count, 'שיעור אחד', 'שיעורים') + ' · אחרון ' + short(s.last) + '</div></div>' +
+      '<button class="x" data-act="hideSong" data-song="' + esc(s.name) + '" aria-label="מחיקת ' + esc(s.name) + ' מהרשימה">' + ICON.x + '</button></div>';
+  }).join('');
+  return backBtn +
+    '<div class="head" style="margin-top:10px"><div><h1 style="font-size:31px">' + esc(st.name) + '</h1><p class="muted">' + plural(past, 'שיעור אחד', 'שיעורים') + (absences ? ' · ' + plural(absences, 'היעדרות אחת', 'היעדרויות') : '') + ' · החדש למעלה</p></div></div>' +
+    '<div class="cols">' +
+    '<section class="col-main hist">' + (hist || '<p class="muted">עדיין אין שיעורים.</p>') + '</section>' +
+    '<aside class="col-side card"><h2>שירים ששרנו</h2><p class="muted small" style="margin:0">' + plural(st.songs.length, 'שיר אחד', 'שירים') + '. נשמרים עד שמוחקים אותם.</p>' +
+      (songs || '<p class="muted small" style="margin:0">עדיין אין שירים</p>') + '</aside>' +
+    '</div>';
+}
+
+function renderAdd() {
+  if (!S.students) {
+    ensure('students', 'getStudents', [], function (r) { S.students = r; });
+  }
+  var A = S.add;
+  var pills = (S.students || []).map(function (s) {
+    return '<button class="pick' + (A.name === s.name ? ' on' : '') + '" data-act="pickStudent" data-name="' + esc(s.name) + '">' + esc(s.name) + '</button>';
+  }).join('');
+  var ok = A.name.trim() && A.date && A.time;
+  return '<button class="btn link" data-act="goCal">' + ICON.back + 'חזרה ללוח</button>' +
+    '<section class="card" style="max-width:760px;margin-top:10px;gap:18px">' +
+    '<h1>שיעור חדש</h1>' +
+    '<div style="display:flex;flex-direction:column;gap:10px"><span style="font-weight:700">תלמיד/ה</span>' +
+      (S.students ? '<div class="pills">' + pills + '</div>' : loading()) +
+      '<label for="addName" class="small muted" style="font-weight:500">או שם חדש</label>' +
+      '<input type="text" id="addName" value="' + esc(A.name) + '" style="max-width:320px"></div>' +
+    '<div class="row" style="gap:20px;align-items:flex-end">' +
+      '<div style="display:flex;flex-direction:column;gap:8px"><label for="addDate">תאריך</label><input type="date" id="addDate" value="' + esc(A.date) + '"></div>' +
+      '<div style="display:flex;flex-direction:column;gap:8px"><label for="addTime">שעה</label><input type="time" id="addTime" value="' + esc(A.time) + '"></div>' +
+      '<div style="display:flex;flex-direction:column;gap:8px"><label for="addMin">משך</label><select id="addMin">' +
+        [30, 45, 60, 90].map(function (m) { return '<option value="' + m + '"' + (Number(A.minutes) === m ? ' selected' : '') + '>' + m + ' דקות</option>'; }).join('') +
+      '</select></div></div>' +
+    '<p class="muted small" style="margin:0">השיעור יתווסף גם ליומן "שיעורים" ב-Google Calendar.</p>' +
+    '<div><button class="btn primary big" data-act="addLesson"' + (ok && !S.saving ? '' : ' disabled') + '>' + (S.saving ? 'מוסיף…' : 'הוספה ללוח') + '</button></div>' +
+    '</section>';
+}
+
+/* ---------- actions ---------- */
+var ACT = {
+  retry: function () { S.error = null; S.pending = {}; render(); },
+  goCal: function () { if (!leaveOk()) return; S.dirty = false; S.screen = 'calendar'; render(); },
+  goStudents: function () { if (!leaveOk()) return; S.dirty = false; S.screen = 'students'; render(); },
+  goAdd: function () { S.screen = 'add'; S.add = { name: '', date: S.weekStart <= ymd(new Date()) && ymd(new Date()) <= addDays(S.weekStart, 6) ? ymd(new Date()) : S.weekStart, time: '16:00', minutes: 60 }; render(); },
+  weekPrev: function () { changeWeek(-1); },
+  weekNext: function () { changeWeek(1); },
+  weekToday: function () {
+    var t = sundayOf(new Date());
+    if (t !== S.weekStart) { S.slide = t > S.weekStart ? 'slide-next' : 'slide-prev'; S.weekStart = t; }
+    render();
+  },
+  back: function () { if (!leaveOk()) return; S.dirty = false; S.screen = S.back; render(); },
+  openLesson: function (d) {
+    var item = S.items[d.key]; if (!item) return;
+    S.back = S.screen === 'student' ? 'student' : 'calendar';
+    S.screen = 'lesson'; S.lesson = { loading: true }; S.dirty = false; S.songInput = '';
+    render();
+    call('getLesson', baseOf(item)).then(function (l) {
+      S.lesson = l; S.draft = l.summary || ''; S.draftSongs = (l.songs || []).slice(); render();
+    }).catch(fail);
+  },
+  openStudent: function (d) {
+    if (S.screen === 'lesson' && !leaveOk()) return;
+    S.dirty = false; S.studentId = d.id; S.screen = 'student'; render();
+  },
+  save: function () {
+    var L = S.lesson; S.saving = true; render();
+    var p = baseOf(L); p.summary = S.draft; p.songs = S.draftSongs;
+    call('saveLesson', p).then(function () {
+      S.saving = false; S.dirty = false; invalidate();
+      S.screen = S.back; render(); toast('הסיכום של ' + L.name + ' נשמר');
+    }).catch(fail);
+  },
+  markAbsent: function () { setAbsent(true); },
+  unmarkAbsent: function () { setAbsent(false); },
+  addSong: function () { addSongName(S.songInput); },
+  addPrevSong: function (d) { addSongName(d.song); },
+  removeSong: function (d) { S.draftSongs.splice(Number(d.i), 1); S.dirty = true; render(); },
+  attach: function () { document.getElementById('fileInput').click(); },
+  removeFile: function (d) {
+    if (!confirm('להסיר את "' + d.name + '" מהשיעור? הקובץ יעבור לפח של Google Drive.')) return;
+    call('removeFile', baseOf(S.lesson), d.id).then(function (files) {
+      S.lesson.files = files; invalidate(); render(); toast('הקובץ הוסר');
+    }).catch(fail);
+  },
+  hideSong: function (d) {
+    var st = S.student;
+    if (!confirm('למחוק את "' + d.song + '" מרשימת השירים של ' + st.name + '? הסיכומים של השיעורים לא ישתנו.')) return;
+    call('hideSong', st.id, d.song).then(function () {
+      S.student = null; render(); toast('השיר נמחק מהרשימה');
+    }).catch(fail);
+  },
+  addStudent: function () {
+    var n = S.newStudent.trim(); if (!n) return;
+    call('addStudent', n).then(function () { S.newStudent = ''; S.students = null; render(); toast(n + ' נוסף/ה לרשימה'); }).catch(fail);
+  },
+  pickStudent: function (d) { S.add.name = d.name; render(); },
+  addLesson: function () {
+    var A = S.add; S.saving = true; render();
+    call('addLesson', { name: A.name.trim(), date: A.date, time: A.time, minutes: Number(A.minutes) }).then(function (r) {
+      S.saving = false; invalidate(); S.weekStart = sundayOf(toDate(A.date)); S.screen = 'calendar'; render();
+      toast('השיעור עם ' + r.name + ' נוסף ללוח');
+    }).catch(fail);
+  }
+};
+
+function setAbsent(value) {
+  var L = S.lesson; S.saving = true; render();
+  var p = baseOf(L); p.summary = S.draft; p.songs = S.draftSongs; p.absent = value;
+  call('saveLesson', p).then(function () {
+    S.saving = false; S.dirty = false; invalidate();
+    if (value) { S.screen = S.back; render(); toast(L.name + ' סומן/ה: לא הגיע/ה'); }
+    else { L.absent = false; render(); toast('הסימון בוטל'); }
+  }).catch(fail);
+}
+
+function addSongName(name) {
+  var n = String(name || '').replace(/\s+/g, ' ').trim();
+  S.songInput = '';
+  if (n && S.draftSongs.indexOf(n) === -1) { S.draftSongs.push(n); S.dirty = true; }
+  render();
+}
+
+document.addEventListener('click', function (e) {
+  var b = e.target.closest('[data-act]');
+  if (!b || b.disabled) return;
+  var fn = ACT[b.getAttribute('data-act')];
+  if (fn) { e.preventDefault(); fn(b.dataset); }
+});
+
+document.addEventListener('input', function (e) {
+  var t = e.target;
+  if (t.id === 'summary') {
+    S.draft = t.value;
+    if (!S.dirty) { S.dirty = true; var btnRow = t.nextElementSibling; if (btnRow && !btnRow.querySelector('.muted')) btnRow.insertAdjacentHTML('beforeend', '<span class="muted small">יש שינויים שלא נשמרו</span>'); }
+  }
+  else if (t.id === 'songInput') S.songInput = t.value;
+  else if (t.id === 'newStudent') S.newStudent = t.value;
+  else if (t.id === 'addName') { S.add.name = t.value; refreshAddButton(); }
+  else if (t.id === 'addDate') { S.add.date = t.value; refreshAddButton(); }
+  else if (t.id === 'addTime') { S.add.time = t.value; refreshAddButton(); }
+});
+document.addEventListener('change', function (e) {
+  if (e.target.id === 'addMin') S.add.minutes = e.target.value;
+  if (e.target.id === 'addDate') { S.add.date = e.target.value; refreshAddButton(); }
+  if (e.target.id === 'addTime') { S.add.time = e.target.value; refreshAddButton(); }
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key !== 'Enter') return;
+  if (e.target.id === 'songInput') { e.preventDefault(); addSongName(S.songInput); }
+  if (e.target.id === 'newStudent') { e.preventDefault(); ACT.addStudent(); }
+});
+function refreshAddButton() {
+  var b = document.querySelector('[data-act="addLesson"]');
+  var A = S.add;
+  if (b) b.disabled = !(A.name.trim() && A.date && A.time) || S.saving;
+  document.querySelectorAll('.pick').forEach(function (p) { p.classList.toggle('on', p.getAttribute('data-name') === A.name.trim()); });
+}
+
+document.getElementById('fileInput').addEventListener('change', function (e) {
+  var f = e.target.files && e.target.files[0];
+  e.target.value = '';
+  if (!f || !S.lesson) return;
+  if (f.size > MAX_MB * 1024 * 1024) { toast('הקובץ גדול מדי (עד ' + MAX_MB + 'MB)', true); return; }
+  S.uploading = true; render();
+  var reader = new FileReader();
+  reader.onload = function () {
+    var b64 = String(reader.result).split(',')[1];
+    call('uploadFile', baseOf(S.lesson), f.name, f.type, b64).then(function (files) {
+      S.uploading = false; S.lesson.files = files; invalidate(); render(); toast('הקובץ צורף');
+    }).catch(fail);
+  };
+  reader.onerror = function () { fail('לא הצלחתי לקרוא את הקובץ'); };
+  reader.readAsDataURL(f);
+});
+
+/* Swipe between weeks on the calendar. Hebrew reads right to left, so the future is to the left:
+   finger moves right = next week, finger moves left = previous week (same as the arrow buttons). */
+var SWIPE_RIGHT_IS_NEXT = true;
+var touch = null;
+var mainEl = document.getElementById('main');
+mainEl.addEventListener('touchstart', function (e) {
+  if (S.screen !== 'calendar' || e.touches.length !== 1) { touch = null; return; }
+  if (e.target.closest('input, textarea, select')) { touch = null; return; }
+  touch = { x: e.touches[0].clientX, y: e.touches[0].clientY, t: Date.now() };
+}, { passive: true });
+mainEl.addEventListener('touchend', function (e) {
+  if (!touch || S.screen !== 'calendar') { touch = null; return; }
+  var p = e.changedTouches[0];
+  var dx = p.clientX - touch.x, dy = p.clientY - touch.y, dt = Date.now() - touch.t;
+  touch = null;
+  if (dt > 700 || Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+  justSwiped = Date.now();
+  changeWeek((dx > 0) === SWIPE_RIGHT_IS_NEXT ? 1 : -1);
+}, { passive: true });
+var justSwiped = 0;
+document.addEventListener('click', function (e) {
+  if (Date.now() - justSwiped < 400) { e.stopPropagation(); e.preventDefault(); }
+}, true);
+
+window.addEventListener('beforeunload', function (e) { if (S.dirty) { e.preventDefault(); e.returnValue = ''; } });
+
+render();
+</script>
+</body>
+</html>

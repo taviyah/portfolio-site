@@ -1,0 +1,344 @@
+[
+  {
+    "slug": "lesson-journal",
+    "featured": true,
+    "kind": "client",
+    "accent": "#6B4BB0",
+    "icon": "journal",
+    "year": "2026",
+    "title": { "he": "יומן שיעורים", "en": "Lesson Journal" },
+    "tagline": {
+      "he": "יומן תלמידים למורה פרטית לפיתוח קול: כל שיעור, סיכום, שיר וקובץ במקום אחד.",
+      "en": "A student log for a private vocal coach: every lesson, summary, song and file in one place."
+    },
+    "status": { "he": "בשימוש יומיומי אצל לקוחה", "en": "In daily use by a client" },
+    "platforms": { "he": "אייפד ומחשב, בדפדפן", "en": "iPad and laptop, in the browser" },
+    "stack": ["Google Apps Script", "Google Calendar", "Google Sheets", "Google Drive", "HTML/CSS/JS", "Node tests"],
+    "problem": {
+      "he": "מורה לפיתוח קול מקליטה הודעה קולית אחרי כל שיעור. הסיכומים היו מפוזרים בין וואטסאפ, הקלטות ותיקיות, ולא הייתה דרך מהירה לראות מה עשתה עם תלמיד לפני חודש או אילו שירים כבר עבדו עליהם.",
+      "en": "A vocal coach records a voice note after every lesson. The summaries were scattered across WhatsApp, recordings and folders, and there was no quick way to see what she did with a student a month ago, or which songs they had already covered."
+    },
+    "built": {
+      "he": [
+        "לוח שבועי שנמשך מהיומן של גוגל: כל שיעור לפי שם התלמיד והשעה, עם סימון ברור של שיעורים שעוד מחכים לסיכום.",
+        "לחיצה על שיעור פותחת אותו: מדביקים את הסיכום (שנכתב על ידי AI מההודעה הקולית), מתייגים שירים ומצרפים PDF או הקלטה.",
+        "דף לכל תלמיד: כל ההיסטוריה מהחדש לישן, ורשימת \"שירים שעשינו\" עם מספר הפעמים.",
+        "עברית מלאה מימין לשמאל, מותאם למגע באייפד ועובד גם במחשב."
+      ],
+      "en": [
+        "A weekly board pulled from Google Calendar: every lesson by student and time, with lessons still waiting for a summary clearly marked.",
+        "Tap a lesson to open it: paste the summary (written by an AI from the voice note), tag the songs, attach a PDF or a recording.",
+        "A page per student: the full history, newest first, and a \"songs we've done\" list with counts.",
+        "Fully Hebrew and right-to-left, built for touch on the iPad, and works on the laptop too."
+      ]
+    },
+    "hard": {
+      "he": [
+        "<strong>עלות אפס ופרטיות.</strong> האפליקציה רצה כולה בחשבון הגוגל של המורה (Apps Script). אין שרת לתחזק, אין חיוב חודשי, והנתונים של התלמידים לא יוצאים מהחשבון שלה.",
+        "<strong>עברית שהתקלקלה בדרך.</strong> בהתקנה הראשונה הקבצים נשלחו בהודעה והעברית הפכה לג'יבריש. הפתרון: שלב בנייה שממיר כל תו לא־ASCII לקוד, כך שהקבצים שורדים כל העתקה ושליחה.",
+        "<strong>עדכונים בלי לאבד נתונים.</strong> כשנוספה האפשרות לסמן \"תלמיד לא הגיע\", נכתבה בדיקת הגירה שמוודאת שכל הנתונים הקיימים נשמרים.",
+        "<strong>בדיקות אוטומטיות.</strong> שירותי גוגל מדומים ב־Node, עם 20 בדיקות שרת (כולל שיעור שמופיע בשני יומנים ומעבר לשעון קיץ) ובדיקות ממשק מלאות."
+      ],
+      "en": [
+        "<strong>Zero cost and private.</strong> The whole app runs inside the coach's own Google account (Apps Script). No server to maintain, no monthly bill, and student data never leaves her account.",
+        "<strong>Hebrew that broke on the way.</strong> On the first install the files were sent by message and the Hebrew turned to gibberish. The fix: a build step that escapes every non-ASCII character, so the files survive any copy or transfer.",
+        "<strong>Updates without losing data.</strong> When an \"absent\" option was added, a migration test made sure all existing records came through intact.",
+        "<strong>Automated tests.</strong> Google's services are faked in Node: 20 server checks (including a lesson that appears in two calendars, and the daylight-saving week) plus full UI tests."
+      ]
+    },
+    "links": [
+      { "label": { "he": "לנסות את הדמו", "en": "Try the live demo" }, "url": "/demo/lesson-journal/", "primary": true }
+    ],
+    "media": [
+      { "file": "lesson-journal/week.png", "alt": { "he": "הלוח השבועי, עם שיעורים שמחכים לסיכום", "en": "The weekly board, with lessons waiting for a summary" }, "wide": true, "fit": "cover" },
+      { "file": "lesson-journal/lesson.png", "alt": { "he": "שיעור פתוח: סיכום, שירים וקבצים", "en": "An open lesson: summary, songs and files" }, "wide": true },
+      { "file": "lesson-journal/student.png", "alt": { "he": "דף תלמידה: היסטוריה ושירים שעשינו", "en": "A student page: history and songs covered" }, "wide": true }
+    ]
+  },
+  {
+    "slug": "click-to-read",
+    "featured": true,
+    "kind": "own",
+    "accent": "#1D5BE0",
+    "icon": "read",
+    "year": "2026",
+    "title": { "he": "Click to Read", "en": "Click to Read" },
+    "tagline": {
+      "he": "נוגעים בטקסט בכל אפליקציה, והטלפון מקריא אותו בקול טבעי, כולל עברית אמיתית.",
+      "en": "Tap text in any app and the phone reads it aloud in a natural voice, including real Hebrew."
+    },
+    "status": { "he": "בשימוש יומיומי על שני טלפונים", "en": "In daily use on two phones" },
+    "platforms": { "he": "אנדרואיד, ווינדוס ותוסף לכרום", "en": "Android, Windows and a Chrome extension" },
+    "stack": ["Kotlin", "Jetpack Compose", "Accessibility Service", "ONNX Runtime", "ML Kit", "Python", "Chrome MV3"],
+    "problem": {
+      "he": "הקראת המסך המובנית באנדרואיד נשמעת רובוטית, ובעברית היא כמעט לא שמישה. רציתי לקרוא מאמרים, הודעות וספרים בעיניים עצומות, בכל אפליקציה, בלי להעתיק טקסט לשום מקום.",
+      "en": "Android's built-in screen reading sounds robotic, and in Hebrew it is barely usable. I wanted to listen to articles, messages and books in any app, without copying text anywhere."
+    },
+    "built": {
+      "he": [
+        "בועה צפה בצד המסך: נוגעים בה, נוגעים בטקסט כלשהו, וההקראה מתחילה משם, עם הדגשה של השורה שנקראת ופקדי עצירה ומהירות.",
+        "משפטים שמערבבים עברית ואנגלית נקראים כל חלק בקול של השפה שלו.",
+        "קורא PDF ו־EPUB מובנה, כי קובצי PDF לא חושפים את הטקסט לשאר המערכת.",
+        "גרסת מחשב: אפליקציה במגש של ווינדוס ותוסף לכרום ולאדג', עם קולות שרצים מקומית ומתקין שמוריד ומאמת את המודלים."
+      ],
+      "en": [
+        "A floating bubble at the screen edge: tap it, tap any text, and reading starts from there, with the current line highlighted and pause and speed controls.",
+        "Sentences that mix Hebrew and English are read with each language's own voice.",
+        "A built-in PDF and EPUB reader, because PDFs don't expose their text to the rest of the system.",
+        "A desktop version: a Windows tray app and a Chrome/Edge extension, with voices running locally and an installer that downloads and verifies the models."
+      ]
+    },
+    "hard": {
+      "he": [
+        "<strong>עברית על המכשיר, בלי אינטרנט.</strong> טקסט עברי צריך ניקוד לפני שאפשר להגות אותו. השרשרת רצה כולה בטלפון: מודל ניקוד, המרה להגייה, ואז קול. ההמרה להגייה הועברה לקוטלין ונבדקה מול גרסת המקור עד התאמה מלאה, תו בתו.",
+        "<strong>מהירות על טלפון חלש.</strong> טלפון הדיו האלקטרוני הוא מכשיר חלש. מדדתי את מספר התהליכונים האופטימלי למודל במקום לנחש.",
+        "<strong>מעקב אחרי הטקסט בזמן גלילה.</strong> ההדגשה צריכה להישאר על השורה הנכונה גם כשהמשתמש גולל את האפליקציה האחרת.",
+        "<strong>55 גרסאות שמורות ובדיקות \"זהב\"</strong> לניקוד, למספרים ולפיצול המילים."
+      ],
+      "en": [
+        "<strong>Hebrew on the device, offline.</strong> Hebrew text needs vowel marks before it can be pronounced. The whole chain runs on the phone: a diacritization model, a phonemizer, then a voice. The phonemizer was ported to Kotlin and checked against the reference until the output matched exactly.",
+        "<strong>Speed on a slow phone.</strong> The e-ink phone is a weak device. I measured the best thread count for the model instead of guessing.",
+        "<strong>Following the text while scrolling.</strong> The highlight has to stay on the right line while the user scrolls the other app.",
+        "<strong>55 commits and golden tests</strong> for diacritization, numbers and tokenizing."
+      ]
+    },
+    "note": {
+      "he": "הקול העברי מורשה לשימוש לא־מסחרי בלבד, ולכן האפליקציה היא כלי אישי ולא מוצר למכירה.",
+      "en": "The Hebrew voice is licensed for non-commercial use only, so this is a personal tool, not a product for sale."
+    },
+    "links": [],
+    "media": []
+  },
+  {
+    "slug": "event-silencer",
+    "featured": true,
+    "kind": "product",
+    "accent": "#050B1E",
+    "icon": "silence",
+    "year": "2026",
+    "title": { "he": "Event Silencer", "en": "Event Silencer" },
+    "tagline": {
+      "he": "משתיק את הטלפון לבד בזמן פגישות ביומן ובמקומות שבחרת.",
+      "en": "Silences your phone by itself during calendar events and at places you choose."
+    },
+    "status": { "he": "בשימוש, בהכנה לגוגל פליי", "en": "In use, being prepared for Google Play" },
+    "platforms": { "he": "אנדרואיד", "en": "Android" },
+    "stack": ["Kotlin", "Google Sign-In", "Google Calendar API", "Location", "Google Play Billing"],
+    "problem": {
+      "he": "הטלפון מצלצל באמצע פגישה, שיעור או הצגה, כי שכחת להשתיק. היומן כבר יודע מתי אתה עסוק, אז הטלפון יכול לדעת לבד.",
+      "en": "Your phone rings in the middle of a meeting, a class or a show because you forgot to silence it. Your calendar already knows when you're busy, so the phone can know too."
+    },
+    "built": {
+      "he": [
+        "התחברות לחשבון גוגל וקריאה של היומן (קריאה בלבד).",
+        "השתקה אוטומטית בזמן אירועים עסוקים, עם סינון לפי מילים (\"פגישה\", \"תיאטרון\"), דקות לפני ואחרי, ובחירה בין שקט, רטט ונא לא להפריע.",
+        "השתקה לפי מיקום: שומרים מקומות, והטלפון משתתק כשמגיעים אליהם.",
+        "30 יום ניסיון ואז פתיחה בתשלום חד־פעמי דרך גוגל פליי."
+      ],
+      "en": [
+        "Sign in with Google and read the calendar (read-only).",
+        "Automatic silence during busy events, with a keyword filter (\"meeting\", \"theater\"), minutes before and after, and a choice of silent, vibrate or Do Not Disturb.",
+        "Silence by place: save locations, and the phone goes quiet when you arrive.",
+        "A 30-day trial, then a one-time paid unlock through Google Play."
+      ]
+    },
+    "hard": {
+      "he": [
+        "<strong>הרשאות של גוגל.</strong> גישה ליומן דורשת אפליקציית OAuth בגוגל קלאוד, מדיניות פרטיות ודף מחיקת נתונים. הכל הוכן והאפליקציה הועברה למצב production.",
+        "<strong>אנדרואיד הורג אפליקציות ברקע.</strong> כל יצרן מגביל את הרקע אחרת, וההשתקה חייבת לקרות בזמן גם כשהאפליקציה סגורה.",
+        "<strong>מוצר, לא רק קוד.</strong> תקופת ניסיון, רכישה, גרפיקה לחנות ומסלול שחרור לגוגל פליי."
+      ],
+      "en": [
+        "<strong>Google permissions.</strong> Calendar access needs an OAuth app in Google Cloud, a privacy policy and a data-deletion page. All of it was prepared and the app was moved to production.",
+        "<strong>Android kills background apps.</strong> Every manufacturer restricts background work differently, and the silence has to happen on time even when the app is closed.",
+        "<strong>A product, not just code.</strong> A trial, a purchase, store graphics and a release track for Google Play."
+      ]
+    },
+    "links": [],
+    "media": [
+      { "file": "event-silencer/feature.jpg", "alt": { "he": "גרפיקה של Event Silencer", "en": "Event Silencer feature graphic" }, "wide": true },
+      { "file": "event-silencer/events.png", "alt": { "he": "מסך השתקה לפי יומן", "en": "Calendar silencing screen" }, "phone": true },
+      { "file": "event-silencer/location.png", "alt": { "he": "מסך השתקה לפי מיקום", "en": "Location silencing screen" }, "phone": true }
+    ]
+  },
+  {
+    "slug": "pitch-lab",
+    "featured": true,
+    "kind": "own",
+    "accent": "#C2410C",
+    "icon": "wave",
+    "year": "2026",
+    "title": { "he": "Pitch Lab", "en": "Pitch Lab" },
+    "tagline": {
+      "he": "מפריד שירה מליווי ומשנה טון, כדי לתרגל שיר בדיוק בגובה שלך.",
+      "en": "Separates the vocals from the backing track and shifts the key, so you can practise a song in your own range."
+    },
+    "status": { "he": "ווינדוס ואייפד עובדים; אנדרואיד נבנה, טרם נבדק על מכשיר", "en": "Windows and iPad working; Android built, not yet tested on a device" },
+    "platforms": { "he": "ווינדוס, אייפד ואנדרואיד", "en": "Windows, iPad and Android" },
+    "stack": ["JavaScript", "ONNX Runtime Web", "WebGPU", "WebAssembly", "Electron", "Swift", "Android WebView", "Cloudflare Workers"],
+    "problem": {
+      "he": "זמרים רוצים לתרגל עם הליווי בלבד, ולעיתים קרובות בטון אחר מהמקור. כלים כאלה בדרך כלל מעלים את השיר לשרת ועולים כסף.",
+      "en": "Singers want to practise with just the backing track, often in a different key from the original. Tools that do this usually upload the song to a server and charge for it."
+    },
+    "built": {
+      "he": [
+        "טוענים שיר, והאפליקציה מפרידה בין השירה לליווי על המכשיר עצמו, בלי שרת.",
+        "שינוי טון בחצאי טונים בלי לשנות את הקצב, וייצוא ל־MP3.",
+        "ספריית פרויקטים ששומרת את המקור ואת הליווי בנפרד מההגדרות, וקובץ פרויקט אחד שעובר בין המכשירים.",
+        "קוד ממשק אחד משותף לווינדוס ולאנדרואיד, וגרסה נפרדת לאייפד."
+      ],
+      "en": [
+        "Load a song and the app separates vocals from accompaniment on the device itself, with no server.",
+        "Shift the key by semitones without changing the tempo, and export to MP3.",
+        "A project library that keeps the original and the backing track apart from the settings, and one project file that moves between devices.",
+        "One shared UI codebase for Windows and Android, and a separate iPad build."
+      ]
+    },
+    "hard": {
+      "he": [
+        "<strong>מודל AI כבד בתוך דפדפן.</strong> ההפרדה רצה על כרטיס המסך (WebGPU) כשאפשר. אם היא נתקעת שתי דקות, היא מתחילה מחדש על המעבד מעותק תקין של המקור.",
+        "<strong>אימות במספרים.</strong> תוצאת המודל בדפדפן הושוותה לתוצאה המקורית (דמיון 0.99999999978), ושינוי הטון נבדק בצליל 440Hz שהוזז ונמדד 494Hz.",
+        "<strong>כנות לגבי מה נבדק.</strong> כל גרסה מתועדת עם מה שנבדק בפועל על מכשיר ומה שעדיין לא."
+      ],
+      "en": [
+        "<strong>A heavy AI model inside a browser.</strong> Separation runs on the graphics card (WebGPU) when it can. If it stalls for two minutes, it restarts on the CPU from a clean copy of the source.",
+        "<strong>Verified with numbers.</strong> The in-browser model output was compared with the reference (similarity 0.99999999978), and pitch shift was checked with a 440 Hz tone shifted and measured at 494 Hz.",
+        "<strong>Honest about what was tested.</strong> Every release notes what was actually verified on a device and what wasn't yet."
+      ]
+    },
+    "links": [],
+    "media": []
+  },
+  {
+    "slug": "wheres-my-sun",
+    "featured": true,
+    "kind": "own",
+    "accent": "#D97706",
+    "icon": "sun",
+    "year": "2026",
+    "title": { "he": "איפה השמש", "en": "Where's my Sun" },
+    "tagline": {
+      "he": "מכוונים את הטלפון לשמיים ורואים את מסלול השמש והירח של היום, מצויר על המצלמה.",
+      "en": "Point the phone at the sky and see today's sun and moon paths drawn over the camera."
+    },
+    "status": { "he": "עובד על שני טלפונים; בדיקת דיוק בחוץ בתהליך", "en": "Runs on two phones; outdoor accuracy testing in progress" },
+    "platforms": { "he": "אנדרואיד", "en": "Android" },
+    "stack": ["Kotlin", "Jetpack Compose", "CameraX", "Motion sensors", "suncalc", "Unit tests"],
+    "problem": {
+      "he": "האם המקום שבו חניתי יהיה בצל בעוד שלוש שעות? איפה יעמוד השמש מעל המרפסת מחר בבוקר? קשה לדמיין את זה.",
+      "en": "Will the spot where I parked be in the shade in three hours? Where will the sun be over the balcony tomorrow morning? It's hard to picture."
+    },
+    "built": {
+      "he": [
+        "מסלולי השמש והירח של היום או של מחר מעל תמונת המצלמה, עם סימני שעות.",
+        "מפת שמיים דו־ממדית, סרגל זמן, ומקומות שמורים.",
+        "כיול בלחיצה על השמש האמיתית, ואזהרה כשמתכת קרובה משבשת את המצפן.",
+        "מצב מיוחד למסך דיו אלקטרוני."
+      ],
+      "en": [
+        "Today's or tomorrow's sun and moon paths over the camera image, with hour marks.",
+        "A 2D sky map, a time slider and saved places.",
+        "Tap-the-real-sun calibration, and a warning when nearby metal throws off the compass.",
+        "A special mode for e-ink screens."
+      ]
+    },
+    "hard": {
+      "he": [
+        "<strong>חיבור אסטרונומיה לחיישנים.</strong> המיקום של השמש מחושב, אבל לצייר אותו במקום הנכון על המסך דורש לדעת בדיוק לאן הטלפון מכוון, מתוך חיישנים רועשים.",
+        "<strong>25 בדיקות אוטומטיות</strong> לחישובי האסטרונומיה ולכיוון הטלפון."
+      ],
+      "en": [
+        "<strong>Joining astronomy to sensors.</strong> The sun's position is calculated, but drawing it in the right place on screen means knowing exactly where the phone points, from noisy sensors.",
+        "<strong>25 automated tests</strong> for the astronomy and the phone's orientation."
+      ]
+    },
+    "links": [],
+    "media": []
+  },
+  {
+    "slug": "real-signal",
+    "featured": false,
+    "accent": "#B45309",
+    "icon": "bars",
+    "title": { "he": "Real Signal: הקליטה האמיתית", "en": "Real Signal" },
+    "tagline": {
+      "he": "מראה את הקליטה האמיתית של הטלפון, ומסביר במילים פשוטות למה האינטרנט איטי. נבנה אחרי שגיליתי שסרגל הקליטה של היצרן מראה פסים מלאים גם בקליטה בינונית, ו־5G גם כשהנתונים עוברים ב־4G.",
+      "en": "Shows the phone's true signal, and explains in plain words why the internet is slow. Built after finding that the maker's status bar shows full bars on a fair signal, and 5G while data is really on 4G."
+    },
+    "stack": ["Kotlin", "Telephony API", "Foreground service", "Speed test"],
+    "link": { "label": { "he": "הבעיה הקודמת באותו טלפון", "en": "The other bug on this phone" }, "url": "/notes/phone-dropping-calls/" }
+  },
+  {
+    "slug": "weather-alert",
+    "featured": false,
+    "accent": "#0E7490",
+    "icon": "cloud",
+    "title": { "he": "התראת מזג אוויר", "en": "Weather Alert" },
+    "tagline": {
+      "he": "מתריע על גשם, אבק, זיהום אוויר או שינוי חד במקומות שלך, ואומר מה זה אומר לכביסה, למסכה ולביגוד. בלי חשבון ובלי שרת.",
+      "en": "Warns about rain, dust, bad air or sharp changes for your places, and says what it means for laundry, a mask and clothing. No account, no server."
+    },
+    "stack": ["Kotlin", "Compose", "Open-Meteo", "WorkManager"]
+  },
+  {
+    "slug": "water-sources-map",
+    "featured": false,
+    "accent": "#0369A1",
+    "icon": "drop",
+    "title": { "he": "מפת מקורות מים", "en": "Water Sources Map" },
+    "tagline": {
+      "he": "מפה של מעיינות, נקודות מים, נחלים ובריכות בישראל, עם מדידת מרחק ומצב דיו אלקטרוני.",
+      "en": "A map of springs, drinking water, streams and pools in Israel, with distance measuring and an e-ink mode."
+    },
+    "stack": ["Kotlin", "Compose", "MapLibre", "OpenStreetMap"]
+  },
+  {
+    "slug": "voice-coach",
+    "featured": false,
+    "accent": "#7C3AED",
+    "icon": "voice",
+    "title": { "he": "מאמן קולי", "en": "Voice Coach" },
+    "tagline": {
+      "he": "מאמן אישי בעברית ש\"מתקשר\" בשעות קבועות, מדבר איתך בקול ומעדכן את רשימת המשימות שלך בנוטשן.",
+      "en": "A Hebrew personal coach that \"calls\" at set times, talks it through by voice, and updates your Notion task list."
+    },
+    "stack": ["Kotlin", "Speech-to-text", "LLM", "Notion API"]
+  },
+  {
+    "slug": "a2t",
+    "featured": false,
+    "accent": "#475569",
+    "icon": "transcribe",
+    "title": { "he": "A2T: הקלטה לטקסט", "en": "A2T: Audio to Text" },
+    "tagline": {
+      "he": "תמלול הקלטות שיחה על הטלפון, בלי אינטרנט, בחמש שפות, עם מודלי Whisper.",
+      "en": "Offline transcription of call recordings on the phone, in five languages, with Whisper models."
+    },
+    "stack": ["Kotlin", "sherpa-onnx", "Whisper"]
+  },
+  {
+    "slug": "camera-obscura",
+    "featured": false,
+    "accent": "#334155",
+    "icon": "camera",
+    "title": { "he": "Camera Obscura", "en": "Camera Obscura" },
+    "tagline": {
+      "he": "מצלמה עם מקשי עוצמה כמקש צילום, טיימר וצילום וידאו עם מסך כבוי. נבנתה לטלפון דיו אלקטרוני.",
+      "en": "A camera with the volume keys as shutter, a self-timer and screen-off video. Built for an e-ink phone."
+    },
+    "stack": ["Kotlin", "CameraX"]
+  },
+  {
+    "slug": "partsong",
+    "featured": false,
+    "accent": "#15803D",
+    "icon": "notes",
+    "title": { "he": "תרומה ל־Partsong", "en": "Contributions to Partsong" },
+    "tagline": {
+      "he": "גרסה עברית מורחבת של Partsong, פרויקט קוד פתוח של Paul Fremantle שקורא תווים מ־PDF ומנגן אותם. הוספתי ממשק עברי, ייבוא MusicXML, מיקסר וליווי, ותמלול מהקלטה לתווים שרץ בדפדפן.",
+      "en": "An extended Hebrew version of Partsong, Paul Fremantle's open-source app that reads sheet music from a PDF and plays it. I added a Hebrew interface, MusicXML import, a mixer and accompaniment, and in-browser audio-to-notes transcription."
+    },
+    "stack": ["JavaScript", "WebAssembly", "ONNX", "AGPL-3.0"],
+    "url": "https://partsong.app/"
+  }
+]

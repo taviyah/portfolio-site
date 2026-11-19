@@ -1,0 +1,59 @@
+[
+  {
+    "slug": "phone-dropping-calls",
+    "accent": "#B91C1C",
+    "icon": "signal",
+    "title": {
+      "he": "למה הטלפון ניתק שיחות כשהמסך ננעל",
+      "en": "Why my phone dropped calls when the screen locked"
+    },
+    "tagline": {
+      "he": "שלוש תקלות שנראו שונות, הגדרה נסתרת אחת, ואיך מוצאים אותה עם יומן הסוללה של אנדרואיד.",
+      "en": "Three faults that looked unrelated, one hidden setting, and how Android's battery log found it."
+    },
+    "body": {
+      "he": [
+        "<h2>התסמינים</h2>",
+        "<p>בטלפון עם מסך דיו אלקטרוני ואנדרואיד 14 (<bdi>Bigme HiBreak Pro</bdi>) הופיעו שלוש תקלות שנראו לא קשורות:</p>",
+        "<ul><li>\"אין שירות\" מיד אחרי שחרור הנעילה.</li><li>שיחות שמתנתקות כשהמסך ננעל באמצע שיחה.</li><li>התראות שלא מגיעות כשהטלפון נעול.</li></ul>",
+        "<h2>החקירה</h2>",
+        "<p>במקום לנחש, הוצאתי את היסטוריית הסוללה של המכשיר (<code>dumpsys batterystats --history</code>) וחיפשתי מה קורה בדיוק ברגע שהשיחה נופלת. התמונה הייתה עקבית: המסך כבה, 51 שניות אחר כך מופעלת התראה פנימית של היצרן בשם <code>deepsleep_alarm</code>, ו־237 אלפיות שנייה אחריה השיחה נגמרת.</p>",
+        "<p>ההתראה הזו שייכת לרכיב של היצרן (<code>com.xrz.standby</code>). כשההגדרה <code>deepsleep_open_airplane</code> פעילה, היא מעבירה את הטלפון למצב טיסה, וזה מכבה את הסלולר <em>וגם</em> את ה־Wi-Fi.</p>",
+        "<p>מנגנון אחד הסביר את שלוש התקלות: המודם כבוי בזמן נעילה, ולכן אין שירות, השיחה נופלת, וההתראות לא מגיעות.</p>",
+        "<h2>התיקון</h2>",
+        "<p>שורה אחת, מהמחשב:</p>",
+        "<pre><code>adb shell settings put system deepsleep_open_airplane 0</code></pre>",
+        "<p>התיקון שורד הפעלה מחדש. אחרי כל עדכון מערכת של היצרן כדאי לבדוק אותו שוב.</p>",
+        "<h2>למה אפליקציה לא יכולה לעשות את זה</h2>",
+        "<p>ניסיתי לבנות אפליקציה שתדליק את המצב בלילה ותכבה אותו ביום. התזמון עבד. הכתיבה להגדרה נחסמה. אנדרואיד מאפשר לכתוב הגדרות מערכת לא־ציבוריות רק לתהליכים של המערכת, root או ה־shell. זו בדיקה לפי <em>זהות התהליך</em>, לא לפי הרשאה: גם כשהאפליקציה קיבלה <code>WRITE_SECURE_SETTINGS</code>, הכתיבה נכשלה, ואותה פקודה בדיוק מה־shell הצליחה בכל פעם. אותו קיר עומד גם בפני Tasker, MacroDroid וכל אפליקציית אוטומציה אחרת.</p>",
+        "<h2>מה כן עובד</h2>",
+        "<p>הגדרה אחרת, <code>wifi_disconnect_time_seconds</code>, דוחה את ההתראה למרות השם שלה: ב־30 (ברירת המחדל) הרדיו נכבה אחרי כ־52 שניות, ב־60 אחרי כ־104, וב־10 ההתראה לא נקבעת בכלל. אלה שלוש מדידות בלבד, ולכן היחס המדויק עדיין לא מאומת.</p>",
+        "<h2>מה למדתי</h2>",
+        "<ul><li>כשכמה תקלות מופיעות יחד, כדאי לחפש מנגנון אחד לפני שמתקנים כל אחת לחוד.</li><li>יומני המערכת עונים על השאלות טוב יותר מהשערות. חותמת זמן אחת הכריעה.</li><li>לכתוב בבירור מה נבדק ומה לא, כולל מה <em>לא</em> עבד.</li></ul>",
+        "<h2>ואז הבעיה הבאה</h2>",
+        "<p>באותו טלפון התברר שגם סרגל הקליטה מטעה: הוא מציג פסים מלאים כבר מקליטה בינונית, ו־<bdi>5G</bdi> כשהרשת רק <em>מציעה</em> אותו. אי אפשר לתקן את שורת המצב בלי root, אז בניתי אפליקציה קטנה, <bdi>Real Signal</bdi>, שמראה את הקליטה האמיתית (עוצמה והפרעות יחד), את הפס שבשימוש, ובדיקת מהירות, ומסבירה במילים פשוטות למה האינטרנט איטי.</p>"
+      ],
+      "en": [
+        "<h2>The symptoms</h2>",
+        "<p>An e-ink phone (Bigme HiBreak Pro, Android 14) had three faults that looked unrelated:</p>",
+        "<ul><li>\"No service\" right after unlocking.</li><li>Calls dropping when the screen locked mid-call.</li><li>No notifications while the phone was locked.</li></ul>",
+        "<h2>The investigation</h2>",
+        "<p>Instead of guessing, I pulled the device's battery history (<code>dumpsys batterystats --history</code>) and looked at exactly what happened when a call dropped. The picture was consistent: the screen goes off, 51 seconds later a vendor alarm called <code>deepsleep_alarm</code> fires, and 237 milliseconds after that the call ends.</p>",
+        "<p>The alarm belongs to a vendor component (<code>com.xrz.standby</code>). When the setting <code>deepsleep_open_airplane</code> is on, it puts the phone into airplane mode, which turns off cellular <em>and</em> Wi-Fi.</p>",
+        "<p>One mechanism explained all three faults: the modem is off while locked, so there's no service, the call drops, and no push notification arrives.</p>",
+        "<h2>The fix</h2>",
+        "<p>One line, from a computer:</p>",
+        "<pre><code>adb shell settings put system deepsleep_open_airplane 0</code></pre>",
+        "<p>It survives a reboot. It's worth re-checking after any vendor system update.</p>",
+        "<h2>Why an app can't do it</h2>",
+        "<p>I tried to build an app that would turn the mode on at night and off by day. The scheduling worked; writing the setting was blocked. Android only lets system, root or shell processes write non-public system settings. It's a check on the <em>process identity</em>, not a permission: even with <code>WRITE_SECURE_SETTINGS</code> granted, the app's write failed, while the identical command from the shell succeeded every time. The same wall stops Tasker, MacroDroid and every other automation app.</p>",
+        "<h2>What does work</h2>",
+        "<p>Another setting, <code>wifi_disconnect_time_seconds</code>, delays the alarm despite its name: at 30 (the default) the radios go off after about 52 seconds, at 60 after about 104, and at 10 the alarm isn't scheduled at all. That's only three measurements, so the exact relationship is still unverified.</p>",
+        "<h2>What I took from it</h2>",
+        "<ul><li>When several faults show up together, look for one mechanism before fixing each one separately.</li><li>System logs answer questions better than theories. One timestamp settled it.</li><li>Write down clearly what was tested and what wasn't, including what <em>didn't</em> work.</li></ul>",
+        "<h2>And then the next one</h2>",
+        "<p>On the same phone, the signal bars turned out to mislead too: they show full bars from a fair signal upward, and 5G when the network only <em>offers</em> it. The status bar can't be fixed without root, so I built a small app, Real Signal, that shows the true signal (strength and interference together), the band in use and a speed test, and explains in plain words why the internet is slow.</p>"
+      ]
+    }
+  }
+]

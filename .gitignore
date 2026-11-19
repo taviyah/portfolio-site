@@ -1,0 +1,12 @@
+dist/
+__pycache__/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example

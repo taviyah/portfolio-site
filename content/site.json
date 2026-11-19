@@ -1,0 +1,144 @@
+{
+  "_help": "Fill in name and contact before publishing. While email and whatsapp are both empty, every page shows a red DRAFT bar.",
+  "name": { "he": "אביה טרבס", "en": "Aviyah Treves" },
+  "domain": "https://aviyah-apps.pages.dev",
+  "contact": {
+    "email": "taviyah@gmail.com",
+    "whatsapp": "+972528978235",
+    "github": "",
+    "linkedin": "",
+    "cv_pdf": ""
+  },
+
+  "he": {
+    "dir": "rtl",
+    "lang_switch": "English",
+    "nav": { "work": "עבודות", "services": "בנייה ללקוחות", "about": "עליי", "contact": "יצירת קשר" },
+    "hero_kicker": "אפליקציות, אתרים וכלים בהתאמה אישית",
+    "hero_title": "אני בונה תוכנה שפותרת בעיה אחת אמיתית, בעברית, ושעובדת כל יום.",
+    "hero_body": "אפליקציות לאנדרואיד, כלים לעסקים קטנים, אוטומציות וכלים מבוססי AI. אני מתכנן ומוביל את הבנייה עם Claude Code ו־Codex, בודק על מכשירים אמיתיים, ומתחזק את מה שבניתי.",
+    "hero_cta": "ספרו לי מה אתם צריכים",
+    "hero_cta2": "לראות עבודות",
+    "stats": [
+      { "n": "15+", "t": "אפליקציות שנבנו ונמצאות בשימוש" },
+      { "n": "1", "t": "לקוחה שמשתמשת כל יום" },
+      { "n": "4", "t": "פלטפורמות: אנדרואיד, ווינדוס, אייפד, דפדפן" }
+    ],
+    "featured_title": "עבודות נבחרות",
+    "more_title": "עוד דברים שבניתי",
+    "note_title": "מחקר תקלה",
+    "read_more": "לקריאה",
+    "case_study": "פרטים",
+    "labels": {
+      "problem": "הבעיה",
+      "built": "מה בניתי",
+      "hard": "מה היה מאתגר, ואיך נפתר",
+      "stack": "טכנולוגיות",
+      "status": "מצב",
+      "platforms": "פלטפורמות",
+      "year": "שנה",
+      "note": "הערה",
+      "back": "→ לכל העבודות",
+      "client": "פרויקט ללקוחה",
+      "product": "מוצר",
+      "own": "פרויקט אישי",
+      "original": "הפרויקט המקורי",
+      "screens_soon": "צילומי מסך יתווספו בקרוב"
+    },
+    "services_title": "בנייה ללקוחות",
+    "services_body": "אם יש בעסק שלך משהו שנעשה ידנית, בטבלאות, בוואטסאפ או בפתקים, יש סיכוי טוב שכלי קטן ומותאם יחסוך לך שעות כל שבוע.",
+    "services_list": [
+      { "t": "כלים לעסקים קטנים", "d": "יומני לקוחות, הזמנות, מעקב תלמידים ומטופלים. כמו יומן השיעורים, ולרוב בלי עלות חודשית." },
+      { "t": "אפליקציות לאנדרואיד", "d": "מרעיון ועד אפליקציה שעובדת על הטלפון, כולל הכנה לגוגל פליי." },
+      { "t": "אוטומציות ו־AI", "d": "חיבור בין גוגל, נוטשן, טלגרם ושירותי AI, כך שעבודה חוזרת תקרה לבד." }
+    ],
+    "process_title": "איך זה עובד",
+    "process": [
+      { "t": "שיחה", "d": "מספרים לי מה מציק ואיך עובדים היום. חצי שעה, בלי התחייבות." },
+      { "t": "הצעה", "d": "תיאור קצר של מה ייבנה, כמה זמן ייקח ומה המחיר." },
+      { "t": "גרסה ראשונה", "d": "בדרך כלל תוך כשבועיים. משתמשים בה באמת ומעירים." },
+      { "t": "תיקונים ותחזוקה", "d": "משפרים לפי השימוש. אני נשאר זמין גם אחרי." }
+    ],
+    "about_title": "עליי",
+    "about_body": [
+      "אני מטפל במגע מאז 2014, וגר בעמק חפר. בתחילת 2026 התחלתי לבנות תוכנה עם כלי AI, ומאז בניתי יותר מחמש־עשרה אפליקציות: כלים שאני משתמש בהם כל יום, ויומן שיעורים שמורה לפיתוח קול עובדת איתו כל יום.",
+      "אני לא בא מתואר במדעי המחשב. אני בא מהעבודה עם אנשים: להקשיב למה שמפריע להם באמת, ולבנות את הדבר הקטן שפותר את זה. את הקוד כותבים איתי Claude Code ו־Codex. את ההחלטות, הבדיקות על מכשירים אמיתיים והאחריות על התוצאה אני לוקח.",
+      "כל פרויקט מתועד: מה נבנה, מה עבד, מה לא ולמה. ככה אפשר לחזור אליו אחרי חודשים, או להעביר אותו למישהו אחר."
+    ],
+    "about_langs": "עברית, אנגלית, צרפתית",
+    "about_langs_label": "שפות",
+    "contact_title": "בואו נדבר",
+    "contact_body": "ספרו לי בכמה משפטים מה אתם צריכים. אחזור אליכם תוך יום עבודה.",
+    "contact_missing": "פרטי הקשר עוד לא הוזנו (site.json)",
+    "draft_bar": "טיוטה: חסרים פרטי קשר ב־site.json. לא לפרסם עדיין.",
+    "footer": "נבנה ביד, בלי מעקב ובלי עוגיות.",
+    "demo_banner": "דמו עם נתונים מומצאים. שום דבר לא נשמר; רענון מחזיר את המצב ההתחלתי.",
+    "demo_back": "חזרה לפורטפוליו"
+  },
+
+  "en": {
+    "dir": "ltr",
+    "lang_switch": "עברית",
+    "nav": { "work": "Work", "services": "Build for you", "about": "About", "contact": "Contact" },
+    "hero_kicker": "Custom apps, sites and tools",
+    "hero_title": "I build software that solves one real problem, and gets used every day.",
+    "hero_body": "Android apps, tools for small businesses, automations and AI-powered tools. I design and direct the build with Claude Code and Codex, test on real devices, and maintain what I ship.",
+    "hero_cta": "Tell me what you need",
+    "hero_cta2": "See the work",
+    "stats": [
+      { "n": "15+", "t": "apps built and in use" },
+      { "n": "1", "t": "client using it every day" },
+      { "n": "4", "t": "platforms: Android, Windows, iPad, web" }
+    ],
+    "featured_title": "Selected work",
+    "more_title": "More things I've built",
+    "note_title": "Troubleshooting write-up",
+    "read_more": "Read",
+    "case_study": "Details",
+    "labels": {
+      "problem": "The problem",
+      "built": "What I built",
+      "hard": "What was hard, and how it was solved",
+      "stack": "Built with",
+      "status": "Status",
+      "platforms": "Platforms",
+      "year": "Year",
+      "note": "Note",
+      "back": "← All work",
+      "client": "Client project",
+      "product": "Product",
+      "own": "Own project",
+      "original": "Original project",
+      "screens_soon": "Screenshots coming soon"
+    },
+    "services_title": "Build for you",
+    "services_body": "If something in your business is done by hand, in spreadsheets, in WhatsApp or on paper, a small custom tool can probably save you hours every week.",
+    "services_list": [
+      { "t": "Small-business tools", "d": "Client logs, bookings, student and patient tracking. Like Lesson Journal, and often with no monthly cost." },
+      { "t": "Android apps", "d": "From an idea to an app that works on your phone, including Google Play preparation." },
+      { "t": "Automation and AI", "d": "Connecting Google, Notion, Telegram and AI services so repeated work happens by itself." }
+    ],
+    "process_title": "How it works",
+    "process": [
+      { "t": "A call", "d": "Tell me what bothers you and how you work today. Half an hour, no commitment." },
+      { "t": "A proposal", "d": "A short description of what gets built, how long it takes and the price." },
+      { "t": "First version", "d": "Usually in about two weeks. You use it for real and comment." },
+      { "t": "Fixes and upkeep", "d": "We improve it from real use. I stay available afterwards." }
+    ],
+    "about_title": "About",
+    "about_body": [
+      "I've been a bodywork therapist since 2014, living in Israel's Hefer Valley. In early 2026 I started building software with AI tools, and since then I've built more than fifteen apps: tools I use every day, and a lesson journal a vocal coach works with daily.",
+      "I don't come from a computer-science degree. I come from working with people: listening for what really bothers them, and building the small thing that fixes it. Claude Code and Codex write the code with me. The decisions, the testing on real devices and the responsibility for the result are mine.",
+      "Every project is documented: what was built, what worked, what didn't and why. So it can be picked up again months later, or handed to someone else."
+    ],
+    "about_langs": "Hebrew, English, French",
+    "about_langs_label": "Languages",
+    "contact_title": "Let's talk",
+    "contact_body": "Tell me in a few sentences what you need. I'll get back to you within a working day.",
+    "contact_missing": "Contact details not filled in yet (site.json)",
+    "draft_bar": "Draft: contact details missing in site.json. Don't publish yet.",
+    "footer": "Hand-built. No tracking, no cookies.",
+    "demo_banner": "Demo with made-up data. Nothing is saved; reload to start over.",
+    "demo_back": "Back to portfolio"
+  }
+}
