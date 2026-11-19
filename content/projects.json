@@ -36,13 +36,13 @@
     },
     "built": {
       "he": [
-        "לוח שבועי שנמשך מהיומן של גוגל: כל שיעור לפי שם התלמיד והשעה, עם סימון ברור של שיעורים שעוד מחכים לסיכום.",
+        "לוח שבועי שמתעדכן לבד מיומן גוגל: כל שיעור לפי שם התלמיד והשעה, עם סימון ברור של שיעורים שעוד מחכים לסיכום.",
         "לחיצה על שיעור פותחת אותו: מדביקים את הסיכום (שנכתב על ידי AI מההודעה הקולית), מתייגים שירים ומצרפים PDF או הקלטה.",
         "דף לכל תלמיד: כל ההיסטוריה מהחדש לישן, ורשימת \"שירים שעשינו\" עם מספר הפעמים.",
         "עברית מלאה מימין לשמאל, מותאם למגע באייפד ועובד גם במחשב."
       ],
       "en": [
-        "A weekly board pulled from Google Calendar: every lesson by student and time, with lessons still waiting for a summary clearly marked.",
+        "A weekly board that updates itself from Google Calendar: every lesson by student and time, with lessons still waiting for a summary clearly marked.",
         "Tap a lesson to open it: paste the summary (written by an AI from the voice note), tag the songs, attach a PDF or a recording.",
         "A page per student: the full history, newest first, and a \"songs we've done\" list with counts.",
         "Fully Hebrew and right-to-left, built for touch on the iPad, and works on the laptop too."
@@ -51,7 +51,7 @@
     "hard": {
       "he": [
         "<strong>עלות אפס, והנתונים אצל המורה.</strong> האפליקציה רצה כולה בחשבון הגוגל של המורה (Apps Script), בלי שרת לתחזק ובלי חיוב חודשי. היומן שומר את הסיכומים והקבצים בחשבון הגוגל שלה. את הסיכום מכינים בנפרד ומדביקים ביומן.",
-        "<strong>עברית שהתקלקלה בדרך.</strong> בהתקנה הראשונה הקבצים נשלחו בהודעה והעברית הפכה לג'יבריש. הפתרון: שלב בנייה שממיר כל תו לא־ASCII לקוד, כך שהקבצים שורדים כל העתקה ושליחה.",
+        "<strong>עברית שהתקלקלה בדרך.</strong> בהתקנה הראשונה הקבצים נשלחו בהודעה והעברית הפכה לג'יבריש. הפתרון: שלב בנייה שממיר כל תו לא־ASCII לקוד, כך שהעברית נשארת תקינה בכל העתקה ושליחה.",
         "<strong>עדכונים בלי לאבד נתונים.</strong> כשנוספה האפשרות לסמן \"תלמיד לא הגיע\", נכתבה בדיקת הגירה שמוודאת שכל הנתונים הקיימים נשמרים.",
         "<strong>בדיקות אוטומטיות.</strong> שירותי גוגל מדומים ב־Node, עם 20 בדיקות שרת (כולל שיעור שמופיע בשני יומנים ומעבר לשעון קיץ) ובדיקות ממשק מלאות."
       ],
@@ -144,7 +144,7 @@
       "Chrome MV3"
     ],
     "problem": {
-      "he": "הקראת המסך המובנית באנדרואיד נשמעת רובוטית, ובעברית היא כמעט לא שמישה. רציתי לקרוא מאמרים, הודעות וספרים בעיניים עצומות, בכל אפליקציה, בלי להעתיק טקסט לשום מקום.",
+      "he": "הקראת המסך המובנית באנדרואיד נשמעת רובוטית, ובעברית היא כמעט לא שמישה. רציתי להאזין למאמרים, הודעות וספרים במקום לקרוא אותם, בכל אפליקציה, בלי להעתיק טקסט לשום מקום.",
       "en": "Android's built-in screen reading sounds robotic, and in Hebrew it is barely usable. I wanted to listen to articles, messages and books in any app, without copying text anywhere."
     },
     "built": {
@@ -164,13 +164,13 @@
     "hard": {
       "he": [
         "<strong>עברית על המכשיר, בלי אינטרנט.</strong> טקסט עברי צריך ניקוד לפני שאפשר להגות אותו. השרשרת רצה כולה בטלפון: מודל ניקוד, המרה להגייה, ואז קול. ההמרה להגייה הועברה לקוטלין ונבדקה מול גרסת המקור עד התאמה מלאה, תו בתו.",
-        "<strong>מהירות על טלפון חלש.</strong> טלפון הדיו האלקטרוני הוא מכשיר חלש. מדדתי את מספר התהליכונים האופטימלי למודל במקום לנחש.",
+        "<strong>מהירות על טלפון חלש.</strong> על טלפון עם מסך דיו אלקטרוני, שהוא מכשיר חלש, בדקתי אילו הגדרות עיבוד מאפשרות להקראה לעבוד מהר יותר, במקום לנחש.",
         "<strong>מעקב אחרי הטקסט בזמן גלילה.</strong> ההדגשה צריכה להישאר על השורה הנכונה גם כשהמשתמש גולל את האפליקציה האחרת.",
         "<strong>בדיקות \"זהב\"</strong> לניקוד, למספרים ולפיצול המילים: הפלט נבדק מול תוצאות ידועות בכל שינוי."
       ],
       "en": [
         "<strong>Hebrew on the device, offline.</strong> Hebrew text needs vowel marks before it can be pronounced. The whole chain runs on the phone: a diacritization model, a phonemizer, then a voice. The phonemizer was ported to Kotlin and checked against the reference until the output matched exactly.",
-        "<strong>Speed on a slow phone.</strong> The e-ink phone is a weak device. I measured the best thread count for the model instead of guessing.",
+        "<strong>Speed on a slow phone.</strong> On a phone with an e-ink screen, which is a weak device, I tested which processing settings make the reading run faster, instead of guessing.",
         "<strong>Following the text while scrolling.</strong> The highlight has to stay on the right line while the user scrolls the other app.",
         "<strong>Golden tests</strong> for diacritization, numbers and tokenizing: the output is checked against known results on every change."
       ]
@@ -182,8 +182,8 @@
     "links": [],
     "media": [],
     "intro": {
-      "he": "נוגעים בטקסט על המסך ומתחילים להאזין. גם משפט שמשלב עברית ואנגלית מוקרא בקול המתאים לכל שפה, והקריאה בעברית רצה בטלפון עצמו, בלי אינטרנט.",
-      "en": "Tap text on the screen and start listening. Even a sentence that mixes Hebrew and English is read with the right voice for each language, and the Hebrew voice runs on the phone itself, with no internet."
+      "he": "קוראים כתבה באפליקציה של עיתון, נוגעים בבועה הצפה בצד המסך ואז בפסקה, ושומעים אותה בקול טבעי, כשהשורה שנקראת מודגשת על המסך. גם משפט שמשלב עברית ואנגלית מוקרא בקול המתאים לכל שפה.",
+      "en": "Reading an article in a news app, you tap the floating bubble at the edge of the screen, then a paragraph, and hear it in a natural voice while the line being read is highlighted. Even a sentence that mixes Hebrew and English is read with the right voice for each language."
     }
   },
   {
@@ -217,19 +217,19 @@
       "Google Play Billing"
     ],
     "problem": {
-      "he": "הטלפון מצלצל באמצע פגישה, שיעור או הצגה, כי שכחת להשתיק. היומן כבר יודע מתי אתה עסוק, אז הטלפון יכול לדעת לבד.",
+      "he": "הטלפון מצלצל באמצע פגישה, שיעור או הצגה, כי שכחתם להשתיק. היומן כבר יודע מתי אתם עסוקים, אז הטלפון יכול לדעת לבד.",
       "en": "Your phone rings in the middle of a meeting, a class or a show because you forgot to silence it. Your calendar already knows when you're busy, so the phone can know too."
     },
     "built": {
       "he": [
         "התחברות לחשבון גוגל וקריאה של היומן (קריאה בלבד).",
-        "השתקה אוטומטית בזמן אירועים עסוקים, עם סינון לפי מילים (\"פגישה\", \"תיאטרון\"), דקות לפני ואחרי, ובחירה בין שקט, רטט ונא לא להפריע.",
+        "השתקה אוטומטית בזמן אירועים שמסומנים ביומן כ\"עסוק\", עם סינון לפי מילים (\"פגישה\", \"תיאטרון\"), דקות לפני ואחרי, ובחירה בין שקט, רטט ונא לא להפריע.",
         "השתקה לפי מיקום: שומרים מקומות, והטלפון משתתק כשמגיעים אליהם.",
         "מודל התשלום המתוכנן: 30 יום ניסיון ואז פתיחה בתשלום חד־פעמי דרך גוגל פליי. עוד לא פורסם."
       ],
       "en": [
         "Sign in with Google and read the calendar (read-only).",
-        "Automatic silence during busy events, with a keyword filter (\"meeting\", \"theater\"), minutes before and after, and a choice of silent, vibrate or Do Not Disturb.",
+        "Automatic silence during events marked \"busy\" in your calendar, with a keyword filter (\"meeting\", \"theater\"), minutes before and after, and a choice of silent, vibrate or Do Not Disturb.",
         "Silence by place: save locations, and the phone goes quiet when you arrive.",
         "Planned payment model: a 30-day trial, then a one-time paid unlock through Google Play. Not released yet."
       ]
@@ -272,7 +272,11 @@
         },
         "phone": true
       }
-    ]
+    ],
+    "intro": {
+      "he": "יש לכם פגישה ב־10:00. כשהיא מתחילה הטלפון עובר לשקט לבד, וכשהיא נגמרת הוא חוזר למצב הצליל הקודם. אפשר להקדים את ההשתקה בכמה דקות, ואם שמרתם את חדר הכושר כמקום, הטלפון משתתק גם כשאתם מגיעים לשם.",
+      "en": "You have a meeting at 10:00. When it starts, the phone goes quiet by itself, and when it ends it returns to the sound mode it had before. You can start a few minutes early, and if you saved the gym as a place, the phone also goes quiet when you get there."
+    }
   },
   {
     "slug": "pitch-lab",
@@ -327,18 +331,22 @@
     },
     "hard": {
       "he": [
-        "<strong>מודל AI כבד בתוך דפדפן.</strong> ההפרדה רצה על כרטיס המסך (WebGPU) כשאפשר. אם היא נתקעת שתי דקות, היא מתחילה מחדש על המעבד מעותק תקין של המקור.",
-        "<strong>אימות במספרים.</strong> תוצאת המודל בדפדפן הושוותה לתוצאה המקורית (דמיון 0.99999999978). כדי לבדוק ששינוי הסולם מדויק, העליתי צליל בדיקה בטון שלם ומדדתי את התוצאה: מ־440 לכ־494 הרץ.",
+        "<strong>מודל AI כבד שרץ על המחשב או הטאבלט עצמו.</strong> בלי שרת: ההפרדה רצה על כרטיס המסך (WebGPU) כשאפשר. אם היא נתקעת שתי דקות, היא מתחילה מחדש על המעבד מעותק תקין של המקור.",
+        "<strong>אימות במספרים.</strong> תוצאת ההפרדה הייתה כמעט זהה לזו של המודל המקורי. כדי לבדוק ששינוי הסולם מדויק, העליתי צליל בדיקה בטון שלם ומדדתי את התוצאה: מ־440 לכ־494 הרץ.",
         "<strong>כנות לגבי מה נבדק.</strong> כל גרסה מתועדת עם מה שנבדק בפועל על מכשיר ומה שעדיין לא."
       ],
       "en": [
-        "<strong>A heavy AI model inside a browser.</strong> Separation runs on the graphics card (WebGPU) when it can. If it stalls for two minutes, it restarts on the CPU from a clean copy of the source.",
-        "<strong>Verified with numbers.</strong> The in-browser model output was compared with the reference (similarity 0.99999999978). To check the key change is exact, I raised a test tone by a whole tone and measured the result: from 440 to about 494 Hz.",
+        "<strong>A heavy AI model on the computer or tablet itself.</strong> No server: separation runs on the graphics card (WebGPU) when it can. If it stalls for two minutes, it restarts on the CPU from a clean copy of the source.",
+        "<strong>Verified with numbers.</strong> The separation result was virtually identical to the original model's. To check the key change is exact, I raised a test tone by a whole tone and measured the result: from 440 to about 494 Hz.",
         "<strong>Honest about what was tested.</strong> Every release notes what was actually verified on a device and what wasn't yet."
       ]
     },
     "links": [],
-    "media": []
+    "media": [],
+    "intro": {
+      "he": "בוחרים שיר ומקבלים את הליווי בנפרד. אם השיר גבוה מדי, מנמיכים את הסולם ומתרגלים בקצב המקורי.",
+      "en": "Pick a song and get the backing track on its own. If the song sits too high, lower the key and practise at the original tempo."
+    }
   },
   {
     "slug": "wheres-my-sun",
@@ -408,7 +416,11 @@
         "url": "https://github.com/taviyah/where-is-my-sun"
       }
     ],
-    "media": []
+    "media": [],
+    "intro": {
+      "he": "עומדים ליד הרכב בעשר בבוקר, מכוונים את הטלפון לשמיים ורואים איפה השמש תהיה באחת בצהריים, וכך אפשר להעריך אם הרכב יהיה בצל.",
+      "en": "Standing by the car at ten in the morning, you point the phone at the sky and see where the sun will be at one o'clock, so you can judge whether the car will be in the shade."
+    }
   },
   {
     "slug": "real-signal",
