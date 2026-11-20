@@ -98,7 +98,7 @@
       "מתחילת 2026 בניתי יותר מחמש־עשרה אפליקציות: כלים שאני משתמש בהם כל יום, ויומן שיעורים שמורה לפיתוח קול עובדת איתו כל יום. אני משתמש בכלי פיתוח כמו Claude Code ו־Codex כדי לכתוב את הקוד, ומקבל בעצמי את ההחלטות על מה לבנות ואיך לבדוק שהתוצאה עובדת.",
       "כל פרויקט מתועד: מה נבנה, מה עבד, מה לא ולמה. ככה אפשר לחזור אליו אחרי חודשים, או להעביר אותו למישהו אחר."
     ],
-    "about_langs": "עברית, אנגלית, צרפתית",
+    "about_langs": "עברית, אנגלית, צרפתית, ספרדית",
     "about_langs_label": "שפות",
     "contact_title": "בואו נדבר",
     "contact_body": "ספרו לי בכמה משפטים מה אתם צריכים. אחזור אליכם תוך יום עבודה.",
@@ -194,7 +194,7 @@
       "Since early 2026 I've built more than fifteen apps: tools I use every day, and a lesson log a vocal coach works with daily. I use development tools like Claude Code and Codex to write the code, and I make the decisions myself: what to build, and how to check that the result works.",
       "Every project is documented: what was built, what worked, what didn't and why. So it can be picked up again months later, or handed to someone else."
     ],
-    "about_langs": "Hebrew, English, French",
+    "about_langs": "Hebrew, English, French, Spanish",
     "about_langs_label": "Languages",
     "contact_title": "Let's talk",
     "contact_body": "Tell me in a few sentences what you need. I'll get back to you within a working day.",
