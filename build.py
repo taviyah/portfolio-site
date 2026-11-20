@@ -279,7 +279,10 @@ def home(lang):
 
 <section id="about" class="sec">
   <div class="wrap about">
-    <h2 class="sec-title">{e(S['about_title'])}</h2>
+    <div class="about-side">
+      <h2 class="sec-title">{e(S['about_title'])}</h2>
+      <img class="portrait" src="/assets/media/me/portrait.webp" width="600" height="750" alt="{e(t(SITE['name'], lang))}" loading="lazy" decoding="async">
+    </div>
     <div class="about-txt">{about}
       <p class="facts"><b>{e(S['about_langs_label'])}:</b> {e(S['about_langs'])}</p>
     </div>
@@ -288,7 +291,10 @@ def home(lang):
 
 <section id="contact" class="sec contact">
   <div class="wrap">
-    <h2 class="sec-title">{e(S['contact_title'])}</h2>
+    <div class="contact-head">
+      <img class="avatar" src="/assets/media/me/avatar.webp" width="240" height="240" alt="" loading="lazy" decoding="async">
+      <h2 class="sec-title">{e(S['contact_title'])}</h2>
+    </div>
     <p class="sec-lede">{e(S['contact_body'])}</p>
     {contact_buttons(lang)}
   </div>

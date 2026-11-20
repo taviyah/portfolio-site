@@ -188,6 +188,8 @@ nav .lang { border: 1px solid var(--line); }
 .about { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; }
 .about-txt { display: flex; flex-direction: column; gap: 16px; font-size: 18px; max-width: 64ch; }
 .facts { color: var(--muted); }
+.portrait { display: block; width: 100%; max-width: 300px; height: auto; border-radius: 18px; background: var(--line, #ddd); }
+@media (max-width: 760px) { .portrait { max-width: 220px; margin-block-end: 28px; } }
 @media (max-width: 760px) { .about { grid-template-columns: 1fr; gap: 0; } }
 
 /* contact */
@@ -196,6 +198,9 @@ nav .lang { border: 1px solid var(--line); }
 .contact .btn { background: transparent; color: inherit; border-color: color-mix(in srgb, currentColor 40%, transparent); }
 .contact .btn:hover { border-color: currentColor; }
 .contact .btn.primary { background: var(--brand-ink); color: var(--brand); border-color: var(--brand-ink); }
+.contact-head { display: flex; align-items: center; gap: 18px; margin-block-end: 28px; }
+.contact-head .sec-title { margin: 0; }
+.avatar { width: 72px; height: 72px; border-radius: 50%; flex: none; border: 2px solid color-mix(in srgb, currentColor 35%, transparent); }
 .missing { display: inline-block; padding: 12px 18px; border: 2px dashed currentColor; border-radius: 12px; opacity: .9; }
 
 .foot { padding-block: 28px; color: var(--muted); font-size: 14px; }
